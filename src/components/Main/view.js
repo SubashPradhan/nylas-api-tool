@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import View from './View';
+import React from 'react';
+import '../../styles/main.css';
+import NylasLogo from '../../assets/Nylas-logo.svg';
 
-class Main extends Component {
-	render() {
-		return <View />;
-	}
+export default function View() {
+	return (
+		<>
+			<img src={NylasLogo} className="nylas-logo"></img>
+			<h1 className="title">Welcome to the Nylas API</h1>
+			<h2 className="sub-title"> Fetch every data with a click.</h2>
+			<div></div>
+		</>
+	);
 }
-
-export default Main;

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+import View from './view';
 
-export default function View() {
-	return (
-		<div>
-			<div>Hello</div>
-		</div>
-	);
+class Main extends Component {
+	render() {
+		return <View />;
+	}
 }
+
+export default Main;
