@@ -3,8 +3,6 @@ import NylasLogo from '../../assets/Nylas-logo.svg';
 import { Link } from 'react-router-dom';
 
 export default function View(props) {
-	const { redirect } = props;
-
 	return (
 		<>
 			<img
