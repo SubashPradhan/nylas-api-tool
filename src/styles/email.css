@@ -1,0 +1,22 @@
+.email-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.api-selector{
+  text-align: center;
+}
+.selector{
+  border: 2px solid black;
+  border-radius: 0.8rem;
+  height: 3.5rem;
+  width: 110%;
+  font-size: 1.5rem;
+  background: rgba(0.3, 266, 180);
+  outline: none;
+}
+
+.api-option{
+  margin-top:10rem;
+}
