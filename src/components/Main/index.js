@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import View from './view';
+import { connect } from 'react-redux';
+import { handleAccessToken } from '../../actions/handleAccessToken';
 
 class Main extends Component {
+	handleChange = e => {
+		const { value } = e.target;
+		this.props.handleAccessToken(value);
+	};
+
 	render() {
-		return <View />;
+		return <View handleChange={this.handleChange} />;
 	}
 }
 
-export default Main;
+const mapStateToProps = state => {
+	return {
+		accessToken: state.accessToken,
+	};
+};
+export default connect(mapStateToProps, { handleAccessToken })(Main);

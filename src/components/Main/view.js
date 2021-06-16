@@ -3,6 +3,7 @@ import NylasLogo from '../../assets/Nylas-logo.svg';
 import { Link } from 'react-router-dom';
 
 export default function View(props) {
+	const { handleChange } = props;
 	return (
 		<>
 			<img
@@ -13,6 +14,10 @@ export default function View(props) {
 			></img>
 			<h1 className="title">Welcome to the Nylas API</h1>
 			<h2 className="sub-title"> Fetch every data with a click.</h2>
+			<div className="access-token-input-field">
+				<label className="access-token-label">Enter access token</label>
+				<input className="access-token-input" onChange={e => handleChange(e)} />
+			</div>
 			<div className="api-btn-container">
 				<Link to="/email" className="email-btn api-btn">
 					Email API
