@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function View(props) {
 	const { handleChange } = props;
 	return (
-		<>
+		<div className="main">
 			<img
 				src={NylasLogo}
 				className="nylas-logo"
@@ -32,6 +32,6 @@ export default function View(props) {
 					Neural API
 				</Link>
 			</div>
-		</>
+		</div>
 	);
 }
