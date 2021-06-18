@@ -1,0 +1,121 @@
+.navbar-container {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background: rgba(48, 49, 56, 0.8);
+	transition: all 0.5s ease-in-out;
+	z-index: 1;
+	top: -1rem;
+	perspective: 1000px;
+}
+
+.navbar-show {
+	transform: translateY(0);
+}
+
+.navbar-hide {
+	transform: translateY(-100%);
+}
+
+.navbar-links-contents {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transform-style: preserve-3d;
+}
+
+.navbar-links {
+	font-size: 2rem;
+	letter-spacing: 0.15rem;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.4s ease-in-out;
+	padding: 2rem;
+}
+
+.navbar-links:hover {
+	color: #f85b1a;
+	transform: rotate3d(1.8, 1.5, 1.5, -10deg) scale3d(1.2, 1.2, 1.2)
+		translateZ(3rem);
+	font-weight: bold;
+}
+
+.menu-wrapper {
+	display: flex;
+	width: 100%;
+	z-index: 1;
+	transition: all 0.5s ease-in-out;
+	position: fixed;
+}
+
+.hide {
+	height: 0;
+}
+
+.nylas-logo {
+	margin-left: 1.2rem;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+
+.nylas-logo-img {
+	height: 5rem;
+	transition: all 0.4s ease-in-out;
+}
+
+.menu-container {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	cursor: pointer;
+	z-index: 2;
+}
+.menu-container div {
+	height: 0.2rem;
+	margin: 0.5rem;
+	background-color: rgb(10, 10, 10);
+	transition: all 0.4s ease-in-out;
+}
+
+.burger-line-one {
+	width: 1rem;
+}
+
+.burger-line-two {
+	width: 1.5rem;
+}
+
+.burger-line-three {
+	width: 2.5rem;
+}
+
+.burger-line-one-clicked {
+	width: 2.5rem;
+	transform: rotate(-45deg) translate(-1rem, 1rem);
+}
+
+.burger-line-two-clicked {
+	width: 0;
+	opacity: 0;
+}
+
+.burger-line-three-clicked {
+	width: 2.5rem;
+	transform: rotate(45deg);
+}
+
+@media only screen and (max-width: 700px) {
+	.nylas-logo {
+		padding: 0.2rem;
+	}
+	.nylas-logo-img {
+		position: fixed;
+		height: 2.5rem;
+		top: 1rem;
+		left: 1rem;
+	}
+}

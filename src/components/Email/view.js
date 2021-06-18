@@ -1,44 +1,44 @@
-import { Link } from 'react-router-dom';
 import Response from '../Response';
+import Navbar from '../Navbar';
 import '../../styles/email.css';
+
+const options = [
+	{
+		label: 'Messages',
+		value: 'messages',
+	},
+	{
+		label: 'Threads',
+		value: 'threads',
+	},
+	{
+		label: 'Folders',
+		value: 'folders',
+	},
+	{
+		label: 'Labels',
+		value: 'labels',
+	},
+	{
+		label: 'Files',
+		value: 'files',
+	},
+	{
+		label: 'Drafts',
+		value: 'drafts',
+	},
+	{
+		label: 'Outbox',
+		value: 'outbox',
+	},
+];
 
 export default function View(props) {
 	const { handleChange, endpoint } = props;
-	const options = [
-		{
-			label: 'Messages',
-			value: 'messages',
-		},
-		{
-			label: 'Threads',
-			value: 'threads',
-		},
-		{
-			label: 'Folders',
-			value: 'folders',
-		},
-		{
-			label: 'Labels',
-			value: 'labels',
-		},
-		{
-			label: 'Files',
-			value: 'files',
-		},
-		{
-			label: 'Drafts',
-			value: 'drafts',
-		},
-		{
-			label: 'Outbox',
-			value: 'outbox',
-		},
-	];
 
-	return (
-		<div className="email-page">
-			<h1 className="header-api">Email API</h1>
-
+	const emailAPI = (
+		<div className="api-page">
+			<h1 className="title">Email API</h1>
 			<div className="api-selector">
 				<select
 					value={endpoint}
@@ -53,8 +53,13 @@ export default function View(props) {
 					))}
 				</select>
 			</div>
-			<Response />
-			<Link to="/">Home</Link>
 		</div>
+	);
+	return (
+		<>
+			<Navbar />
+			{emailAPI}
+			<Response />
+		</>
 	);
 }

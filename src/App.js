@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Main from './components/Main';
+import Home from './components/Home';
 import Email from './components/Email';
 import Contacts from './components/Contacts';
 import Calendar from './components/Calendar';
@@ -10,7 +10,7 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<Route path="/" exact component={Main} />
+				<Route path="/" exact component={Home} />
 				<Route path="/email" component={Email} />
 				<Route path="/contacts" component={Contacts} />
 				<Route path="/calendars" component={Calendar} />

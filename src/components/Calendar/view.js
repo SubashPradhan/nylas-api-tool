@@ -1,19 +1,20 @@
-import { Link } from 'react-router-dom';
 import Response from '../Response';
+import Navbar from '../Navbar';
 import '../../styles/email.css';
+
+const options = [
+	{
+		label: 'Calendars',
+		value: 'calendars',
+	},
+];
 
 export default function View(props) {
 	const { handleChange, endpoint } = props;
-	const options = [
-		{
-			label: 'Calendars',
-			value: 'calendars',
-		},
-	];
 
-	return (
-		<div className="email-page">
-			<h1 className="header-api">Calendar API</h1>
+	const calendarAPI = (
+		<div className="api-page">
+			<h1 className="title">Calendar API</h1>
 
 			<div className="api-selector">
 				<select
@@ -29,8 +30,14 @@ export default function View(props) {
 					))}
 				</select>
 			</div>
-			<Response />
-			<Link to="/">Home</Link>
 		</div>
+	);
+
+	return (
+		<>
+			<Navbar />
+			{calendarAPI}
+			<Response />
+		</>
 	);
 }
