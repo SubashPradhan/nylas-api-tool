@@ -7,7 +7,7 @@ export default function View(props) {
 	const { handleMenu, showMenu } = props;
 
 	const navLinksContents = (
-		<div className="navbar-links-contents">
+		<div className="navbar-links-contents" onClick={e => handleMenu(e)}>
 			<Link to="/" className="navbar-links">
 				Home
 			</Link>
@@ -45,7 +45,7 @@ export default function View(props) {
 							src={NylasLogo}
 							title="Nylas"
 							alt="Nylas Logo"
-							className={showMenu ? 'hide' : 'nylas-logo-img'}
+							className="nylas-logo-img"
 						/>
 					</Link>
 				</div>
