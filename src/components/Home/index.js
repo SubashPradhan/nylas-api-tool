@@ -19,4 +19,5 @@ const mapStateToProps = state => {
 		accessToken: state.accessToken,
 	};
 };
+
 export default connect(mapStateToProps, { handleAccessToken })(Home);
