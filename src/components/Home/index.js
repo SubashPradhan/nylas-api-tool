@@ -3,7 +3,7 @@ import View from './view';
 import { connect } from 'react-redux';
 import { handleAccessToken } from '../../actions/handleAccessToken';
 
-class Main extends Component {
+class Home extends Component {
 	handleChange = e => {
 		const { value } = e.target;
 		this.props.handleAccessToken(value);
@@ -19,4 +19,4 @@ const mapStateToProps = state => {
 		accessToken: state.accessToken,
 	};
 };
-export default connect(mapStateToProps, { handleAccessToken })(Main);
+export default connect(mapStateToProps, { handleAccessToken })(Home);

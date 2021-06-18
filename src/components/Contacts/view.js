@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
 import Response from '../Response';
+import Navbar from '../Navbar';
 import '../../styles/email.css';
+
+const options = [
+	{
+		label: 'Contacts',
+		value: 'contacts',
+	},
+];
 
 export default function View(props) {
 	const { handleChange, endpoint } = props;
-	const options = [
-		{
-			label: 'Contacts',
-			value: 'contacts',
-		},
-	];
-
-	return (
-		<div className="email-page">
-			<h1 className="header-api">Contacts API</h1>
+	const contactsAPI = (
+		<div className="api-page">
+			<h1 className="title">Contacts API</h1>
 
 			<div className="api-selector">
 				<select
@@ -29,8 +29,13 @@ export default function View(props) {
 					))}
 				</select>
 			</div>
-			<Response />
-			<Link to="/">Home</Link>
 		</div>
+	);
+	return (
+		<>
+			<Navbar />
+			{contactsAPI}
+			<Response />
+		</>
 	);
 }

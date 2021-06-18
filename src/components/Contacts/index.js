@@ -27,7 +27,6 @@ class Contacts extends Component {
 	}
 
 	render() {
-		console.log(this.props.data);
 		return (
 			<>
 				<View handleChange={this.handleChange} endpoint={this.state.endpoint} />

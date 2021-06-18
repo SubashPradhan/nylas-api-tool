@@ -1,19 +1,20 @@
-import { Link } from 'react-router-dom';
 import Response from '../Response';
 import '../../styles/email.css';
+import Navbar from '../Navbar';
+
+const options = [
+	{
+		label: 'Deltas',
+		value: 'delta/latest_cursor',
+	},
+];
 
 export default function View(props) {
 	const { handleChange, endpoint } = props;
-	const options = [
-		{
-			label: 'Deltas',
-			value: 'delta/latest_cursor',
-		},
-	];
 
-	return (
-		<div className="email-page">
-			<h1 className="header-api">Deltas API</h1>
+	const deltaAPI = (
+		<div className="api-page">
+			<h1 className="title">Deltas API</h1>
 			<h2>Work In Progress</h2>
 			<div className="api-selector">
 				<select
@@ -29,8 +30,14 @@ export default function View(props) {
 					))}
 				</select>
 			</div>
-			<Response />
-			<Link to="/">Home</Link>
 		</div>
+	);
+
+	return (
+		<>
+			<Navbar />
+			{deltaAPI}
+			<Response />
+		</>
 	);
 }

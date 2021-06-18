@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import View from './view';
+
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions/handleData';
 
@@ -28,7 +29,6 @@ class Email extends Component {
 	}
 
 	render() {
-		console.log(this.props.data);
 		return (
 			<>
 				<View handleChange={this.handleChange} endpoint={this.state.endpoint} />
