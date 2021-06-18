@@ -25,7 +25,7 @@ export default function View(props) {
 				<Link to="/email" className="email-btn api-btn">
 					Calendar API
 				</Link>
-				<Link to="/email" className="email-btn api-btn">
+				<Link to="/contacts" className="email-btn api-btn">
 					Contacts API
 				</Link>
 				<Link to="/email" className="email-btn api-btn">
