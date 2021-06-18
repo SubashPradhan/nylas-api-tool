@@ -22,14 +22,14 @@ export default function View(props) {
 				<Link to="/email" className="email-btn api-btn">
 					Email API
 				</Link>
-				<Link to="/email" className="email-btn api-btn">
+				<Link to="/calendars" className="email-btn api-btn">
 					Calendar API
 				</Link>
 				<Link to="/contacts" className="email-btn api-btn">
 					Contacts API
 				</Link>
-				<Link to="/email" className="email-btn api-btn">
-					Neural API
+				<Link to="/deltas" className="email-btn api-btn">
+					Deltas API
 				</Link>
 			</div>
 		</div>
