@@ -1,0 +1,15 @@
+.response-header{
+  text-align: center;
+}
+
+.response-body{
+  margin-top: 2rem;
+  background-color: #d9d3da;
+  width: 80%;
+  height: 80vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 0.7rem;
+  padding: 2rem;
+  font-size: 1rem;
+}
