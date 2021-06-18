@@ -3,10 +3,6 @@ import View from './view';
 import { connect } from 'react-redux';
 
 class Response extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return <View data={this.props.data} />;
 	}

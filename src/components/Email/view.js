@@ -4,7 +4,6 @@ import '../../styles/email.css';
 
 export default function View(props) {
 	const { handleChange, endpoint } = props;
-	console.log(endpoint);
 	const options = [
 		{
 			label: 'Messages',
@@ -52,31 +51,6 @@ export default function View(props) {
 							{option.label}
 						</option>
 					))}
-
-					{/* <option className="api-option" disabled="disabled">
-						Choose an API endpoint
-					</option>
-					<option className="api-option" value="threads">
-						Threads
-					</option>
-					<option className="api-option" value="messages">
-						Messages
-					</option>
-					<option className="api-option" value="folders">
-						Folders
-					</option>
-					<option className="api-option" value="labels">
-						Labels
-					</option>
-					<option className="api-option" value="files">
-						Files
-					</option>
-					<option className="api-option" value="drafts">
-						Drafts
-					</option>
-					<option className="api-option" value="outbox">
-						Outbox
-					</option> */}
 				</select>
 			</div>
 			<Response />

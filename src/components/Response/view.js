@@ -7,7 +7,6 @@ export default function View(props) {
 			<h4 className="response-header">Response Body</h4>
 			<div className="json-body">
 				<pre>{JSON.stringify(data, undefined, 2)} </pre>
-				<br />
 			</div>
 		</div>
 	);
