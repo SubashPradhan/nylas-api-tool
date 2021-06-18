@@ -1,15 +1,36 @@
-import Select from 'react-select';
+import { Link } from 'react-router-dom';
+import Response from '../Response';
+import '../../styles/email.css';
 
-const options = [
-	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
-	{ value: 'vanilla', label: 'Vanilla' },
-];
+export default function View(props) {
+	const { handleChange, endpoint } = props;
+	const options = [
+		{
+			label: 'Contacts',
+			value: 'contacts',
+		},
+	];
 
-export default function View() {
 	return (
-		<>
-			<Select APi options={options} />
-		</>
+		<div className="email-page">
+			<h1 className="header-api">Contacts API</h1>
+
+			<div className="api-selector">
+				<select
+					value={endpoint}
+					name="API"
+					className="selector"
+					onChange={e => handleChange(e)}
+				>
+					{options.map((option, i) => (
+						<option key={i} value={option.value}>
+							{option.label}
+						</option>
+					))}
+				</select>
+			</div>
+			<Response />
+			<Link to="/">Home</Link>
+		</div>
 	);
 }
