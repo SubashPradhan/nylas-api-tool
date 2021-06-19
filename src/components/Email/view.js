@@ -1,7 +1,5 @@
-import Response from '../Response';
-import Navbar from '../Navbar';
-// import Params from '../Params';
-import '../../styles/email.css';
+import '../../styles/api.css';
+import ApiPage from '../ApiPage';
 
 const options = [
 	{
@@ -35,33 +33,11 @@ const options = [
 ];
 
 export default function View(props) {
-	const { handleChange, endpoint } = props;
+	const { endpoint, pageName } = props;
 
-	const emailAPI = (
-		<div className="api-page">
-			<h1 className="title">Email API</h1>
-			<div className="api-selector">
-				<select
-					value={endpoint}
-					name="API"
-					className="selector"
-					onChange={e => handleChange(e)}
-				>
-					{options.map((option, i) => (
-						<option key={i} value={option.value}>
-							{option.label}
-						</option>
-					))}
-				</select>
-			</div>
-		</div>
-	);
 	return (
 		<>
-			<Navbar />
-			{emailAPI}
-			{/* <Params /> */}
-			<Response />
+			<ApiPage options={options} pageName={pageName} endpoint={endpoint} />
 		</>
 	);
 }

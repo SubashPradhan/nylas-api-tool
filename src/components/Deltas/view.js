@@ -1,7 +1,4 @@
-import Response from '../Response';
-import '../../styles/email.css';
-import Navbar from '../Navbar';
-
+import ApiPage from '../ApiPage';
 const options = [
 	{
 		label: 'Deltas',
@@ -10,34 +7,11 @@ const options = [
 ];
 
 export default function View(props) {
-	const { handleChange, endpoint } = props;
-
-	const deltaAPI = (
-		<div className="api-page">
-			<h1 className="title">Deltas API</h1>
-			<h2>Work In Progress</h2>
-			<div className="api-selector">
-				<select
-					value={endpoint}
-					name="API"
-					className="selector"
-					onChange={e => handleChange(e)}
-				>
-					{options.map((option, i) => (
-						<option key={i} value={option.value}>
-							{option.label}
-						</option>
-					))}
-				</select>
-			</div>
-		</div>
-	);
+	const { endpoint, pageName } = props;
 
 	return (
 		<>
-			<Navbar />
-			{deltaAPI}
-			<Response />
+			<ApiPage options={options} pageName={pageName} endpoint={endpoint} />
 		</>
 	);
 }
