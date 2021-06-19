@@ -10,7 +10,7 @@ export default function View(props) {
 				<h4 className="response-header">Response Body</h4>
 				<div className="response-status">
 					<div className={statusColor}></div>
-					<div className="status-code">{data.status}</div>
+					<div className="status-code">{data.status ? data.status : 'OK'}</div>
 				</div>
 				<pre>{JSON.stringify(data, undefined, 2)} </pre>
 			</div>
