@@ -1,0 +1,22 @@
+.params-container{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.params-button, .params-input{
+  margin:0.3rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.params-input{
+  display: none;
+}
+
+.show{
+  display: inline;
+}
+

@@ -1,5 +1,6 @@
 import Response from '../Response';
 import Navbar from '../Navbar';
+// import Params from '../Params';
 import '../../styles/email.css';
 
 const options = [
@@ -59,6 +60,7 @@ export default function View(props) {
 		<>
 			<Navbar />
 			{emailAPI}
+			{/* <Params /> */}
 			<Response />
 		</>
 	);
