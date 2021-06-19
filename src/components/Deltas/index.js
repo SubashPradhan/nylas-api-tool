@@ -8,18 +8,9 @@ class Deltas extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'delta/latest_cursor',
+			endpoint: 'delta',
+			pageName: 'Delta API',
 		};
-
-		this.handleChange = this.handleChange.bind(this);
-	}
-
-	async handleChange(e) {
-		const { value } = e.target;
-		await this.setState({
-			endpoint: value,
-		});
-		await this.props.fetchData(this.state.endpoint);
 	}
 
 	componentDidMount() {
@@ -29,7 +20,7 @@ class Deltas extends Component {
 	render() {
 		return (
 			<>
-				<View handleChange={this.handleChange} endpoint={this.state.endpoint} />
+				<View endpoint={this.props.endpoint} pageName={this.state.pageName} />
 			</>
 		);
 	}

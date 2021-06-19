@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import View from './view';
-
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions/handleData';
 
@@ -10,18 +9,8 @@ class Email extends Component {
 
 		this.state = {
 			endpoint: 'messages',
-			response: null,
+			pageName: 'Email API',
 		};
-
-		this.handleChange = this.handleChange.bind(this);
-	}
-
-	async handleChange(e) {
-		const { value } = e.target;
-		await this.setState({
-			endpoint: value,
-		});
-		await this.props.fetchData(this.state.endpoint);
 	}
 
 	componentDidMount() {
@@ -31,7 +20,7 @@ class Email extends Component {
 	render() {
 		return (
 			<>
-				<View handleChange={this.handleChange} endpoint={this.state.endpoint} />
+				<View endpoint={this.props.endpoint} pageName={this.state.pageName} />
 			</>
 		);
 	}

@@ -1,11 +1,12 @@
 import Response from '../Response';
 import Navbar from '../Navbar';
+import SearchById from '../SearchById';
 // import Params from '../Params';
-import '../../styles/email.css';
+// import '../../styles/email.css';
 
 export default function View(props) {
 	const { handleChange, endpoint, options, pageName } = props;
-	console.log(props);
+	console.log(endpoint);
 
 	const API = (
 		<div className="api-page">
@@ -29,8 +30,8 @@ export default function View(props) {
 	return (
 		<>
 			<Navbar />
-			<div>{API}</div>
-			{/* <Params /> */}
+			{API}
+			<SearchById endpoint={endpoint} />
 			<Response />
 		</>
 	);

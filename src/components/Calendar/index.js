@@ -9,17 +9,8 @@ class Calendar extends Component {
 
 		this.state = {
 			endpoint: 'calendars',
+			pageName: 'Calendat API',
 		};
-
-		this.handleChange = this.handleChange.bind(this);
-	}
-
-	async handleChange(e) {
-		const { value } = e.target;
-		await this.setState({
-			endpoint: value,
-		});
-		await this.props.fetchData(this.state.endpoint);
 	}
 
 	componentDidMount() {
@@ -29,7 +20,7 @@ class Calendar extends Component {
 	render() {
 		return (
 			<>
-				<View handleChange={this.handleChange} endpoint={this.state.endpoint} />
+				<View endpoint={this.props.endpoint} pageName={this.state.pageName} />
 			</>
 		);
 	}

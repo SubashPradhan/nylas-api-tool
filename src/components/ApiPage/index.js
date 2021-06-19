@@ -31,9 +31,9 @@ class ApiPage extends Component {
 			<>
 				<View
 					handleChange={this.handleChange}
-					endpoint={this.state.endpoint}
-					pageName={this.state.pageName}
-					options={this.state.options}
+					endpoint={this.props.endpoint}
+					pageName={this.props.pageName}
+					options={this.props.options}
 				/>
 			</>
 		);
