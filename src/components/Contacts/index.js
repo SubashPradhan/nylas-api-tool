@@ -13,14 +13,10 @@ class Contacts extends Component {
 		};
 	}
 
-	componentDidMount() {
-		this.props.fetchData(this.state.endpoint);
-	}
-
 	render() {
 		return (
 			<>
-				<View endpoint={this.props.endpoint} pageName={this.state.pageName} />
+				<View endpoint={this.state.endpoint} pageName={this.state.pageName} />
 			</>
 		);
 	}

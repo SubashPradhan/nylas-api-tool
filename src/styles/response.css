@@ -1,5 +1,6 @@
 .response-header{
   text-align: center;
+  padding: 1rem;
 }
 
 .response-body{
@@ -18,12 +19,15 @@
   overflow-x: auto;
   overflow-y: auto;
   border-radius: 0.7rem;
-  padding: 2rem;
+  padding: 1.5rem;
   font-size: 1rem;
+  letter-spacing: 0.1rem;
 }
 
 .response-status{
   display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
 .red, .green{
@@ -41,9 +45,12 @@
   background: green;
 }
 
+.status{
+  display: flex;
+}
+
 .status-code{
   margin-left: 1rem;
-  font-weight: bold;
   font-size: 1rem;
 }
 
@@ -55,5 +62,14 @@
 
   .json-body{
     padding: 0.5rem;
+  }
+
+  .response-status{
+    flex-direction: column;
+    font-size: 0.8rem;
+  }
+
+  .response-status div {
+    margin-top: 0.2rem;
   }
 }

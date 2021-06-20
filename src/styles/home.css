@@ -1,3 +1,10 @@
+body{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: 0.2rem;
+  margin: 0 auto;
+  padding:0;
+}
+
 .title{
   margin-top: -3rem;
 }
@@ -14,7 +21,7 @@
   outline: none;
   width: 30%;
   height: 2rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   border-radius: 0.5rem;
   letter-spacing: 0.09rem;
   font-weight: bold;
@@ -57,6 +64,9 @@
 
 
 @media screen and (max-width: 600px){
+  body{
+    letter-spacing: 0.03rem;
+  }
   .title{
       margin-top: 2rem;
   }
@@ -67,5 +77,8 @@
   .api-btn{
       width: 100%;
       margin: 1rem;
+  }
+  .access-token-input{
+    width: 50%;
   }
 }
