@@ -1,22 +1,29 @@
 import Response from '../Response';
 import Navbar from '../Navbar';
-import SearchById from '../SearchById';
 // import Params from '../Params';
-// import '../../styles/email.css';
+import '../../styles/api.css';
 
 export default function View(props) {
-	const { handleChange, endpoint, options, pageName } = props;
-	console.log(endpoint);
+	const {
+		handleSelectChange,
+		handleSearchChange,
+		handleSearchSubmit,
+		endpoint,
+		options,
+		pageName,
+		id,
+	} = props;
 
 	const API = (
 		<div className="api-page">
 			<h1 className="title">{pageName}</h1>
+
 			<div className="api-selector">
 				<select
 					value={endpoint}
 					name="API"
 					className="selector"
-					onChange={e => handleChange(e)}
+					onChange={e => handleSelectChange(e)}
 				>
 					{options.map((option, i) => (
 						<option key={i} value={option.value}>
@@ -25,13 +32,25 @@ export default function View(props) {
 					))}
 				</select>
 			</div>
+
+			<div className="search-container">
+				<input
+					value={id}
+					name="search-by-id"
+					placeholder="Search By ID"
+					className="search-input"
+					onChange={e => handleSearchChange(e)}
+				/>
+				<button onClick={handleSearchSubmit} className="search-button">
+					Search
+				</button>
+			</div>
 		</div>
 	);
 	return (
 		<>
 			<Navbar />
 			{API}
-			<SearchById endpoint={endpoint} />
 			<Response />
 		</>
 	);

@@ -11,7 +11,11 @@ export default function View(props) {
 			<h2 className="sub-title"> Fetch every data with a click.</h2>
 			<div className="access-token-input-field">
 				<label className="access-token-label">Enter access token</label>
-				<input className="access-token-input" onChange={e => handleChange(e)} />
+				<input
+					className="access-token-input"
+					onChange={e => handleChange(e)}
+					placeholder="Enter access token"
+				/>
 			</div>
 			<div className="api-btn-container">
 				<Link to="/email" className="email-btn api-btn">

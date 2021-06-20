@@ -2,16 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 0.2rem;
 }
 
 .api-selector{
   text-align: center;
+  width: 15%;
 }
 .selector{
   border: 2px solid black;
   border-radius: 0.8rem;
   height: 3.5rem;
-  width: 110%;
+  width: 100%;
   font-size: 1.5rem;
   background: #00E4BF;
   outline: none;
@@ -19,4 +22,44 @@
 
 .api-option{
   margin-top:10rem;
+}
+
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.search-input, .search-button{
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.search-input{
+  width: 20rem;
+}
+
+.search-button{
+  cursor: pointer;
+  background: none;
+  margin-left: 0.5rem;
+}
+
+.search-button:hover{
+  background: #00E4BF;
+}
+
+@media screen and (max-width: 600px){
+  .api-selector{
+    width: 50%;
+  }
+
+  .search-container{
+    flex-direction: column;
+  }
+
+  .search-input, .search-button{
+    margin-top: 0.8rem;
+  }
 }

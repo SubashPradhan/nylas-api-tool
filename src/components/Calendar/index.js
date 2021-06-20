@@ -9,18 +9,14 @@ class Calendar extends Component {
 
 		this.state = {
 			endpoint: 'calendars',
-			pageName: 'Calendat API',
+			pageName: 'Calendar API',
 		};
-	}
-
-	componentDidMount() {
-		this.props.fetchData(this.state.endpoint);
 	}
 
 	render() {
 		return (
 			<>
-				<View endpoint={this.props.endpoint} pageName={this.state.pageName} />
+				<View endpoint={this.state.endpoint} pageName={this.state.pageName} />
 			</>
 		);
 	}
