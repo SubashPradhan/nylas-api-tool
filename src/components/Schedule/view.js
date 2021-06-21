@@ -1,7 +1,9 @@
 import Navbar from '../Navbar';
 import '../../styles/schedule.css';
+
 export default function View(props) {
 	const { handleScheduleButton } = props;
+
 	return (
 		<>
 			<Navbar />
