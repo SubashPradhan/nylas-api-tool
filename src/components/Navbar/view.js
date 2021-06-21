@@ -20,8 +20,8 @@ export default function View(props) {
 			<Link to="/contacts" className="navbar-links">
 				Contact API
 			</Link>
-			<Link to="/deltas" className="navbar-links">
-				Deltas API
+			<Link to="/schedule-editor" className="navbar-links">
+				Schedule Editor
 			</Link>
 		</div>
 	);

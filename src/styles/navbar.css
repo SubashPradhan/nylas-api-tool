@@ -27,7 +27,7 @@
 }
 
 .navbar-links {
-	font-size: 2rem;
+	font-size:2rem;
 	letter-spacing: 0.15rem;
 	color: white;
 	text-align: center;
@@ -37,7 +37,7 @@
 }
 
 .navbar-links:hover {
-	color: #f85b1a;
+	color: #00E4BF;
 	transform: rotate3d(1.8, 1.5, 1.5, -10deg) scale3d(1.2, 1.2, 1.2)
 		translateZ(3rem);
 	font-weight: bold;
@@ -119,9 +119,11 @@
 		padding: 0.2rem;
 	}
 	.nylas-logo-img {
-		position: fixed;
 		height: 2.5rem;
 		top: 1rem;
 		left: 1rem;
+	}
+	.navbar-links{
+		font-size: 1.5rem;
 	}
 }

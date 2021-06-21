@@ -27,8 +27,8 @@ export default function View(props) {
 				<Link to="/contacts" className="email-btn api-btn">
 					Contacts API
 				</Link>
-				<Link to="/deltas" className="email-btn api-btn">
-					Deltas API
+				<Link to="/schedule-editor" className="email-btn api-btn">
+					Schedule Editor
 				</Link>
 			</div>
 		</div>
