@@ -1,0 +1,17 @@
+.schedule-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.schedule-button{
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.schedule-button:hover{
+  background: #00E4BF;
+}
