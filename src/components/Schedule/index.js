@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 const nylas = window.nylas;
 
 class Schedule extends Component {
-	handleScheduleButton = () => {
+	handleScheduleButton = async () => {
+		const nylasAccessToken = await this.props.accessToken;
 		// Invoke the schedule editor when a user clicks on the button
-		nylas.scheduler.show({
+		await nylas.scheduler.show({
 			auth: {
 				// Account access_token with active calendar scope
-				accessToken: `${this.props.accessToken}`,
+				accessToken: `${nylasAccessToken}`,
 			},
 			style: {
 				// Style the schedule editor
