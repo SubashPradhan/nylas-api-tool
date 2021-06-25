@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NylasLogo from '../../assets/Nylas-logo.svg';
+import { pageLinks } from '../../constants';
 import '../../styles/navbar.css';
 
 export default function View(props) {
@@ -8,21 +9,12 @@ export default function View(props) {
 
 	const navLinksContents = (
 		<div className="navbar-links-contents" onClick={e => handleMenu(e)}>
-			<Link to="/" className="navbar-links">
-				Home
-			</Link>
-			<Link to="/email" className="navbar-links">
-				Email API
-			</Link>
-			<Link to="/calendars" className="navbar-links">
-				Calendar API
-			</Link>
-			<Link to="/contacts" className="navbar-links">
-				Contact API
-			</Link>
-			<Link to="/schedule-editor" className="navbar-links">
-				Schedule Editor
-			</Link>
+			{pageLinks.map((link, i) => (
+				<Link key={i} to={link.value} className="navbar-links">
+					{link.name}
+				</Link>
+			))}
+			;
 		</div>
 	);
 

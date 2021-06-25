@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { pageLinks } from '../../constants';
 import '../../styles/home.css';
 import Navbar from '../Navbar';
 
@@ -18,18 +19,11 @@ export default function View(props) {
 				/>
 			</div>
 			<div className="api-btn-container">
-				<Link to="/email" className="email-btn api-btn">
-					Email API
-				</Link>
-				<Link to="/calendars" className="email-btn api-btn">
-					Calendar API
-				</Link>
-				<Link to="/contacts" className="email-btn api-btn">
-					Contacts API
-				</Link>
-				<Link to="/schedule-editor" className="email-btn api-btn">
-					Schedule Editor
-				</Link>
+				{pageLinks.map((link, i) => (
+					<Link key={i} to={link.value} className="api-btn">
+						{link.name}
+					</Link>
+				))}
 			</div>
 		</div>
 	);

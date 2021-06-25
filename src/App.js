@@ -6,6 +6,7 @@ import Contacts from './components/Contacts';
 import Calendar from './components/Calendar';
 import Deltas from './components/Deltas';
 import Schedule from './components/Schedule';
+import Event from './components/Event';
 
 class App extends Component {
 	render() {
@@ -16,6 +17,7 @@ class App extends Component {
 				<Route path="/contacts" component={Contacts} />
 				<Route path="/calendars" component={Calendar} />
 				<Route path="/deltas" component={Deltas} />
+				<Route path="/events" component={Event} />
 				<Route path="/schedule-editor" component={Schedule} />
 			</>
 		);

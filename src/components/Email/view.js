@@ -4,11 +4,11 @@ import ApiPage from '../ApiPage';
 const options = [
 	{
 		label: 'Messages',
-		value: 'messages',
+		value: 'messages?limit=10',
 	},
 	{
 		label: 'Threads',
-		value: 'threads',
+		value: 'threads?limit=10',
 	},
 	{
 		label: 'Folders',
