@@ -3,13 +3,13 @@ import View from './view';
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions/handleData';
 
-class Email extends Component {
+class Event extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			endpoint: 'messages?limit=10',
-			pageName: 'Email API',
+			endpoint: 'events?limit=10',
+			pageName: 'Events API',
 		};
 	}
 
@@ -22,4 +22,4 @@ class Email extends Component {
 	}
 }
 
-export default connect(null, { fetchData })(Email);
+export default connect(null, { fetchData })(Event);

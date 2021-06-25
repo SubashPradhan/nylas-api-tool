@@ -1,1 +1,9 @@
 export const nylasUrl = 'https://api.nylas.com';
+
+export const pageLinks = [
+	{ name: 'Home', value: '/' },
+	{ name: 'Email API', value: '/email' },
+	{ name: 'Calendar API', value: '/calendars' },
+	{ name: 'Event API', value: '/events' },
+	{ name: 'Schedule Editor', value: '/schedule-editor' },
+];
