@@ -8,7 +8,7 @@ class Email extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'messages?limit=10',
+			endpoint: 'messages',
 			pageName: 'Email API',
 		};
 	}
