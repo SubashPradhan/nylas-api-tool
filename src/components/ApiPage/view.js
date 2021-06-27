@@ -1,7 +1,6 @@
 import Response from '../Response';
 import Navbar from '../Navbar';
-import Params from '../Params';
-// import Footer from '../Footer';
+import Footer from '../Footer';
 import '../../styles/api.css';
 
 export default function View(props) {
@@ -46,7 +45,6 @@ export default function View(props) {
 					Search
 				</button>
 			</div>
-			<Params />
 		</div>
 	);
 	return (
@@ -54,8 +52,7 @@ export default function View(props) {
 			<Navbar />
 			{API}
 			<Response />
-			{/* <Params /> */}
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 }

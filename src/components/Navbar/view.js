@@ -14,7 +14,6 @@ export default function View(props) {
 					{link.name}
 				</Link>
 			))}
-			;
 		</div>
 	);
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { pageLinks } from '../../constants';
 import '../../styles/home.css';
 import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 export default function View(props) {
 	const { handleChange } = props;
@@ -31,7 +32,7 @@ export default function View(props) {
 		<>
 			<Navbar />
 			{homePage}
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 }
