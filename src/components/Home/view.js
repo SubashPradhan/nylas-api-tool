@@ -31,6 +31,7 @@ export default function View(props) {
 		<>
 			<Navbar />
 			{homePage}
+			{/* <Footer /> */}
 		</>
 	);
 }

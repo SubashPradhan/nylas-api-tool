@@ -32,8 +32,9 @@ export default function View(props) {
 	return (
 		<>
 			<div className="params-container">
-				<div>{paramsButton}</div>
 				<div>{paramsInput}</div>
+				<button className="submit-params">Search</button>
+				<div>{paramsButton}</div>
 			</div>
 		</>
 	);
