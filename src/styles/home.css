@@ -40,7 +40,8 @@ body{
 
 .api-btn-container{
   margin: 4rem;
-  
+  margin-top: 2rem;
+  margin-bottom: 1rem
 }
 .api-btn{
   display: flex;
@@ -73,6 +74,7 @@ body{
 
   .api-btn-container{
       margin-top: 2rem;
+      /* margin-bottom: 2rem; */
   }
   .api-btn{
       width: 100%;
