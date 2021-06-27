@@ -8,7 +8,7 @@ class Event extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'events?limit=10',
+			endpoint: 'events',
 			pageName: 'Events API',
 		};
 	}
