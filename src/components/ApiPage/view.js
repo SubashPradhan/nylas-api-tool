@@ -2,6 +2,7 @@ import Response from '../Response';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import '../../styles/api.css';
+import Params from '../Params';
 
 export default function View(props) {
 	const {
@@ -51,6 +52,7 @@ export default function View(props) {
 		<>
 			<Navbar />
 			{API}
+			<Params />
 			<Response />
 			<Footer />
 		</>
