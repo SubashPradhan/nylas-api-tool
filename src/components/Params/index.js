@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 class Params extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			limit: '',
-			in: '',
-			offset: '',
-			view: '',
+			// Get the params from the parent component and change to object
+			myParams: this.props.params.reduce((o, key) => ({ ...o, [key]: '' }), {}),
+			showButton: false,
 		};
 
 		this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -22,25 +22,27 @@ class Params extends Component {
 		const { name } = e.target;
 		const currentInput = document.getElementById(`${name}`);
 		currentInput.classList.add('show');
+		this.setState({
+			showButton: true,
+		});
 	}
 
 	handleInputChange(e, field) {
 		const { value } = e.target;
-		this.setState({ [field]: value });
+		const myParams = { ...this.state.myParams, [field]: value };
+		this.setState({ myParams });
 	}
 
 	handleSubmit(e) {
+		const { myParams } = this.state;
 		e.preventDefault();
 		// Create array of passed parameters with key pair values
-		const arrOfParams = Object.keys(this.state).map(key => [
-			key,
-			this.state[key],
-		]);
+		const arrOfParams = Object.keys(myParams).map(key => [key, myParams[key]]);
 
 		// Check if value exist param[1]
 		// Create query to pass in the API call that matches Nylas calls.
-		const myParams = arrOfParams.filter(param => param[1] && param);
-		const myQuery = myParams.join('&').replace(/,/g, '=');
+		const filteredParams = arrOfParams.filter(param => param[1] && param);
+		const myQuery = filteredParams.join('&').replace(/,/g, '=');
 		this.props.fetchData(`${this.props.endpoint}?${myQuery}`);
 	}
 
@@ -50,6 +52,8 @@ class Params extends Component {
 				handleButtonClick={this.handleButtonClick}
 				handleInputChange={this.handleInputChange}
 				handleSubmit={this.handleSubmit}
+				showButton={this.state.showButton}
+				params={this.props.params}
 			/>
 		);
 	}

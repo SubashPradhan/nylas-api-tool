@@ -1,18 +1,67 @@
 .params-container{
+  position: absolute;
   display: flex;
   flex-direction: column;
-  margin: 2rem;
   align-items: center;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: rgba(48, 49, 56, 0.8);
+  width: 25%;
+  z-index: 2;
+  /* overflow: hidden; */
+  /* transform: translateX(100%); */
   /* justify-content: center; */
 }
 
+.params-input-container{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0.2rem;
+}
+
+.params-button-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 .params-button, .params-input{
-  margin:0.3rem;
-  border-radius: 0.4rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.params-button{
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  height: 5rem;
+  width: 5em;
+  border-radius: 50%;
   cursor: pointer;
+  background: whitesmoke;
+  letter-spacing: 0.2rem;
+  overflow-wrap: break-word;
+  box-shadow: 0.2rem 0.3rem 0.2rem #00E4BF;
+}
+
+.params-button:hover{
+  background: #00E4BF;
+  box-shadow: 0.1rem 0.1rem 0.1rem white;
+}
+
+.params-button:focus{
+  box-shadow: none;
+  outline: none;
 }
 
 .params-input{
+  font-size: 1.5rem;
+  border-radius: 0.4rem;
+  margin: 0.5rem;
+  outline-color: #00E4BF;
+  outline-width: 0.6rem;
   display: none;
 }
 
@@ -20,3 +69,25 @@
   display: inline;
 }
 
+
+.submit-params{
+  position: relative;
+  border-radius: 4px;
+  background: linear-gradient(45deg, rgb(226, 245, 226), #00E4BF, #00E4BF);
+  overflow: hidden;
+  font-style: italic;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  padding: 0.3rem;
+  margin-top: 10px;
+  min-width: 10rem;
+  border: none;
+  box-shadow: 3px 7px 7px rgb(196, 211, 196);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.submit-params:focus{
+  outline: none;
+  box-shadow: none;
+}
