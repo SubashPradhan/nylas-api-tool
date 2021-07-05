@@ -1,8 +1,15 @@
 import '../../styles/params.css';
-const params = ['limit', 'in', 'offset', 'view'];
 
 export default function View(props) {
-	const { handleButtonClick } = props;
+	const {
+		handleButtonClick,
+		handleInputChange,
+		handleSubmit,
+		handleParamsDisplay,
+		showButton,
+		showParams,
+		params,
+	} = props;
 
 	const paramsButton = params.map((param, i) => {
 		return (
@@ -25,16 +32,32 @@ export default function View(props) {
 				key={i}
 				placeholder={param}
 				className="params-input"
+				autoComplete="off"
+				onChange={e => handleInputChange(e, `${param}`)}
 			></input>
 		);
 	});
 
 	return (
 		<>
-			<div className="params-container">
-				<div>{paramsInput}</div>
-				<button className="submit-params">Search</button>
-				<div>{paramsButton}</div>
+			<div
+				className={
+					showParams
+						? 'params-container display-params-container'
+						: 'params-container'
+				}
+			>
+				<h4 className="select-params-text">Select params</h4>
+				<div className="params-button-container">{paramsButton}</div>
+				<div className="params-input-container">{paramsInput}</div>
+				{showButton && (
+					<button className="submit-params" onClick={e => handleSubmit(e)}>
+						Search
+					</button>
+				)}
+				<div className="close-params" onClick={handleParamsDisplay}>
+					X
+				</div>
 			</div>
 		</>
 	);

@@ -31,7 +31,7 @@
   margin: 1rem;
 }
 
-.search-input, .search-button{
+.search-input, .search-button, .add-params-button{
   font-size: 1.2rem;
   border-radius: 0.5rem;
   outline: none;
@@ -40,13 +40,16 @@
   width: 20rem;
 }
 
-.search-button{
+.search-button, .add-params-button{
   cursor: pointer;
   background: none;
+}
+
+.search-button{
   margin-left: 0.5rem;
 }
 
-.search-button:hover{
+.search-button:hover, .add-params-button:hover{
   background: #00E4BF;
 }
 
@@ -61,5 +64,11 @@
 
   .search-input, .search-button{
     margin-top: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .add-params-button{
+    display: none;
   }
 }

@@ -8,6 +8,7 @@ export default function View(props) {
 		handleSelectChange,
 		handleSearchChange,
 		handleSearchSubmit,
+		handleParamsDisplay,
 		endpoint,
 		options,
 		pageName,
@@ -43,6 +44,11 @@ export default function View(props) {
 				/>
 				<button onClick={handleSearchSubmit} className="search-button">
 					Search
+				</button>
+			</div>
+			<div className="add-params-button-container">
+				<button className="add-params-button" onClick={handleParamsDisplay}>
+					Add extra params
 				</button>
 			</div>
 		</div>

@@ -5,5 +5,6 @@ export const pageLinks = [
 	{ name: 'Email API', value: '/email' },
 	{ name: 'Calendar API', value: '/calendars' },
 	{ name: 'Event API', value: '/events' },
+	{ name: 'Contacts API', value: '/contacts' },
 	{ name: 'Schedule Editor', value: '/schedule-editor' },
 ];
