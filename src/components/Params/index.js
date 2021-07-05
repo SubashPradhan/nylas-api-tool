@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import View from './view';
-import { fetchData } from '../../actions/handleData';
 import { connect } from 'react-redux';
+import { fetchData } from '../../actions/handleData';
+import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
 
 class Params extends Component {
 	constructor(props) {
@@ -51,8 +52,8 @@ class Params extends Component {
 		const filteredParams = arrOfParams.filter(param => param[1] && param);
 		const myQuery = filteredParams.join('&').replace(/,/g, '=');
 		this.props.fetchData(`${this.props.endpoint}?${myQuery}`);
-
 		this.emptyInputValue();
+		this.props.handleParamsDisplay();
 	};
 
 	render() {
@@ -62,6 +63,8 @@ class Params extends Component {
 				handleInputChange={this.handleInputChange}
 				handleSubmit={this.handleSubmit}
 				showButton={this.state.showButton}
+				showParams={this.props.showParams}
+				handleParamsDisplay={this.props.handleParamsDisplay}
 				params={this.props.params}
 			/>
 		);
@@ -71,7 +74,10 @@ class Params extends Component {
 const mapStateToProps = state => {
 	return {
 		endpoint: state.endpoint,
+		showParams: state.showParams,
 	};
 };
 
-export default connect(mapStateToProps, { fetchData })(Params);
+export default connect(mapStateToProps, { fetchData, handleParamsDisplay })(
+	Params,
+);

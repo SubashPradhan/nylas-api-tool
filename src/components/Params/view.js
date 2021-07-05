@@ -5,7 +5,9 @@ export default function View(props) {
 		handleButtonClick,
 		handleInputChange,
 		handleSubmit,
+		handleParamsDisplay,
 		showButton,
+		showParams,
 		params,
 	} = props;
 
@@ -38,7 +40,13 @@ export default function View(props) {
 
 	return (
 		<>
-			<div className="params-container">
+			<div
+				className={
+					showParams
+						? 'params-container display-params-container'
+						: 'params-container'
+				}
+			>
 				<h4 className="select-params-text">Select params</h4>
 				<div className="params-button-container">{paramsButton}</div>
 				<div className="params-input-container">{paramsInput}</div>
@@ -47,6 +55,9 @@ export default function View(props) {
 						Search
 					</button>
 				)}
+				<div className="close-params" onClick={handleParamsDisplay}>
+					X
+				</div>
 			</div>
 		</>
 	);

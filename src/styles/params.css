@@ -11,7 +11,11 @@
   z-index: 2;
   overflow: scroll;
   transform: translateX(100%);
-  /* justify-content: center; */
+  transition: all 0.5s ease-in-out;
+}
+
+.display-params-container{
+  transform: translateX(0);
 }
 
 .select-params-text{
@@ -89,4 +93,20 @@
 .submit-params:focus{
   outline: none;
   box-shadow: none;
+}
+
+.close-params{
+  position: fixed;
+  margin: 0.5rem;
+  top: 0;
+  left: 1%;
+  color: white;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .params-input{
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
 }

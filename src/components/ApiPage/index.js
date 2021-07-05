@@ -3,11 +3,11 @@ import View from './view';
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions/handleData';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
+import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
 
 class ApiPage extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			id: '',
 		};
@@ -52,6 +52,7 @@ class ApiPage extends Component {
 					handleSelectChange={this.handleSelectChange}
 					handleSearchChange={this.handleSearchChange}
 					handleSearchSubmit={this.handleSearchSubmit}
+					handleParamsDisplay={this.props.handleParamsDisplay}
 					pageName={this.props.pageName}
 					options={this.props.options}
 					endpoint={this.state.endpoint}
@@ -62,4 +63,8 @@ class ApiPage extends Component {
 	}
 }
 
-export default connect(null, { fetchData, handleEndpointChange })(ApiPage);
+export default connect(null, {
+	fetchData,
+	handleEndpointChange,
+	handleParamsDisplay,
+})(ApiPage);
