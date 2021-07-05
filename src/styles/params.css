@@ -1,23 +1,27 @@
 .params-container{
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   top: 0;
   right: 0;
+  bottom: 0;
   background: rgba(48, 49, 56, 0.8);
   width: 25%;
   z-index: 2;
-  /* overflow: hidden; */
-  /* transform: translateX(100%); */
+  overflow: scroll;
+  transform: translateX(100%);
   /* justify-content: center; */
+}
+
+.select-params-text{
+  color: whitesmoke;
 }
 
 .params-input-container{
   display: flex;
   flex-direction: column;
-  margin: 2rem 0.2rem;
+  margin: 0.3rem 0.2rem;
 }
 
 .params-button-container{
@@ -25,7 +29,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
 }
 
 .params-button, .params-input{
@@ -34,16 +37,13 @@
 
 
 .params-button{
-  margin: 0.5rem;
-  font-size: 1.1rem;
-  height: 5rem;
-  width: 5em;
-  border-radius: 50%;
+  margin: 0.4rem;  
+  border-radius: 0.4rem;
   cursor: pointer;
   background: whitesmoke;
   letter-spacing: 0.2rem;
   overflow-wrap: break-word;
-  box-shadow: 0.2rem 0.3rem 0.2rem #00E4BF;
+  box-shadow: 0.1rem 0.1rem 0.1rem #00E4BF;
 }
 
 .params-button:hover{
@@ -59,7 +59,7 @@
 .params-input{
   font-size: 1.5rem;
   border-radius: 0.4rem;
-  margin: 0.5rem;
+  margin: 0.3rem;
   outline-color: #00E4BF;
   outline-width: 0.6rem;
   display: none;
@@ -74,12 +74,11 @@
   position: relative;
   border-radius: 4px;
   background: linear-gradient(45deg, rgb(226, 245, 226), #00E4BF, #00E4BF);
-  overflow: hidden;
   font-style: italic;
   font-size: 1.4rem;
   letter-spacing: 2px;
   padding: 0.3rem;
-  margin-top: 10px;
+  margin: 0.5rem;
   min-width: 10rem;
   border: none;
   box-shadow: 3px 7px 7px rgb(196, 211, 196);

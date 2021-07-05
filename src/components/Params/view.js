@@ -39,6 +39,7 @@ export default function View(props) {
 	return (
 		<>
 			<div className="params-container">
+				<h4 className="select-params-text">Select params</h4>
 				<div className="params-button-container">{paramsButton}</div>
 				<div className="params-input-container">{paramsInput}</div>
 				{showButton && (

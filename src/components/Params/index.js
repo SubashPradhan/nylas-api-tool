@@ -33,7 +33,14 @@ class Params extends Component {
 		this.setState({ myParams });
 	}
 
-	handleSubmit(e) {
+	// Create function to empty fields on submit
+	emptyInputValue() {
+		const allInputs = document.querySelectorAll('.params-input');
+		allInputs.forEach(input => (input.value = ''));
+		this.setState({ myParams: {} });
+	}
+
+	handleSubmit = e => {
 		const { myParams } = this.state;
 		e.preventDefault();
 		// Create array of passed parameters with key pair values
@@ -44,7 +51,9 @@ class Params extends Component {
 		const filteredParams = arrOfParams.filter(param => param[1] && param);
 		const myQuery = filteredParams.join('&').replace(/,/g, '=');
 		this.props.fetchData(`${this.props.endpoint}?${myQuery}`);
-	}
+
+		this.emptyInputValue();
+	};
 
 	render() {
 		return (

@@ -33,7 +33,23 @@ const options = [
 	},
 ];
 
-const params = ['limit', 'in', 'offset', 'view', 'test', 'test2'];
+const params = [
+	'limit',
+	'in',
+	'offset',
+	'view',
+	'subject',
+	'any_email',
+	'to',
+	'from',
+	'cc',
+	'bcc',
+	'unread',
+	'starred',
+	'filename',
+	'last_message_before',
+	'last_message_after',
+];
 
 export default function View(props) {
 	const { endpoint, pageName } = props;
