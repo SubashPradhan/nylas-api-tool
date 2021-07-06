@@ -43,6 +43,8 @@
 .search-button, .add-params-button{
   cursor: pointer;
   background: none;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0.2rem 0.12rem 0.2rem #00E4BF;
 }
 
 .search-button{
@@ -51,6 +53,10 @@
 
 .search-button:hover, .add-params-button:hover{
   background: #00E4BF;
+}
+
+.search-button:focus, .add-params-button:focus{
+  box-shadow: none;
 }
 
 @media screen and (max-width: 600px){
