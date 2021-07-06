@@ -58,6 +58,24 @@ export default function View(props) {
 				<div className="close-params" onClick={handleParamsDisplay}>
 					X
 				</div>
+				<div className="reference-links-container">
+					<a
+						href="https://developer.nylas.com/docs/connectivity"
+						target="_blank"
+						className="reference-links"
+						rel="noreferrer"
+					>
+						Nylas Docs
+					</a>
+					<a
+						href="https://www.unixtimestamp.com/"
+						target="_blank"
+						className="reference-links"
+						rel="noreferrer"
+					>
+						Unix Time Converter
+					</a>
+				</div>
 			</div>
 		</>
 	);

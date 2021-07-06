@@ -102,6 +102,34 @@
   left: 1%;
   color: white;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.close-params:hover{
+  color: red;
+  transform: scale(1.5);
+}
+
+.reference-links-container{
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+  /* position: absolute; */
+  position: fixed;
+  bottom: 0;
+}
+
+.reference-links{
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.reference-links:hover{
+  color: #00E4BF;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 1000px) {
