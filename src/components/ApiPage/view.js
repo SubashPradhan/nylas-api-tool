@@ -34,6 +34,9 @@ export default function View(props) {
 					))}
 				</select>
 			</div>
+			<div className="https-request">
+				<p>Current request: {data.response && data.response.req.url}</p>
+			</div>
 
 			<div className="search-container">
 				<input
@@ -51,9 +54,6 @@ export default function View(props) {
 						Add extra params
 					</button>
 				</div>
-			</div>
-			<div className="https-request">
-				<p>Current request: {data.response && data.response.req.url}</p>
 			</div>
 		</div>
 	);

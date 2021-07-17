@@ -10,16 +10,26 @@
   margin: 1rem 5rem;
 }
 
-.json-body{
-  background-color: #d9d3da;
-  width: 100%;
+pre {
+  background: #464646;
+  border: 1px solid #ddd;
+  border-left: 0.4rem solid #00E4BF;
+  color: rgb(255, 255,  255);
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 100%;
   height: 95vh;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow: auto;
+  padding: 1em 1.5em;
+  word-wrap: break-word;
   border-radius: 0.7rem;
-  padding: 1.5rem;
+}
+
+.json-body{
+  width: 100%;
   font-size: 1rem;
-  letter-spacing: 0.1rem;
 }
 
 .response-status{
@@ -55,7 +65,7 @@
 @media only screen and (max-width: 700px) {
   .response-body{
     margin: 1.5rem; 
-    margin-top: 2rem;
+    margin-top: 0.2rem;
   }
 
   .json-body{
@@ -69,5 +79,9 @@
 
   .response-status div {
     margin-top: 0.2rem;
+  }
+
+  pre{
+    border-left: 0.1rem solid #00E4BF;
   }
 }
