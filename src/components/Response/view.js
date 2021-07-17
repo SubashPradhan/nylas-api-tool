@@ -13,7 +13,6 @@ export default function View(props) {
 	return (
 		<div className="response-body">
 			<div className="json-body">
-				<h3 className="response-header">Response Body</h3>
 				<div className="response-status">
 					<div className="status">
 						<div className={statusColor}></div>
@@ -23,7 +22,9 @@ export default function View(props) {
 					</div>
 					<div>Account_id: {accountId}</div>
 				</div>
-				<pre>{JSON.stringify(data, undefined, 2)} </pre>
+				<code>
+					<pre>{JSON.stringify(data, undefined, 2)}</pre>
+				</code>
 			</div>
 		</div>
 	);

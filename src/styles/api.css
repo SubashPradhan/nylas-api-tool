@@ -22,7 +22,6 @@
 
 .search-container{
   display: flex;
-  margin-top: 1rem;
 }
 
 .search-input, .search-button, .add-params-button{
@@ -62,8 +61,8 @@
   flex-wrap: wrap;
   max-width: 90%;
   word-break: break-all;
-  font-size: 0.8rem;
-  font-weight: bold;
+  font-size: 0.9rem;
+  /* font-weight: bold; */
 }
 
 @media screen and (max-width: 600px){
