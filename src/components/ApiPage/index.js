@@ -57,13 +57,20 @@ class ApiPage extends Component {
 					options={this.props.options}
 					endpoint={this.state.endpoint}
 					id={this.state.id}
+					data={this.props.data}
 				/>
 			</>
 		);
 	}
 }
 
-export default connect(null, {
+const mapStateToProps = state => {
+	return {
+		data: state.data,
+	};
+};
+
+export default connect(mapStateToProps, {
 	fetchData,
 	handleEndpointChange,
 	handleParamsDisplay,

@@ -6,10 +6,8 @@
 .response-body{
   display: flex;
   flex-direction: column;
-  margin: 5rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   align-items: center;
+  margin: 1rem 5rem;
 }
 
 .json-body{
