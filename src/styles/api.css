@@ -20,21 +20,16 @@
   outline: none;
 }
 
-.api-option{
-  margin-top:10rem;
-}
-
 .search-container{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
+  margin-top: 1rem;
 }
 
 .search-input, .search-button, .add-params-button{
   font-size: 1.2rem;
   border-radius: 0.5rem;
   outline: none;
+  margin: 0.5rem;
 }
 .search-input{
   width: 20rem;
@@ -57,6 +52,18 @@
 
 .search-button:focus, .add-params-button:focus{
   box-shadow: none;
+}
+
+.https-request{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 90%;
+  word-break: break-all;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 600px){

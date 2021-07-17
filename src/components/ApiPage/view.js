@@ -13,6 +13,7 @@ export default function View(props) {
 		options,
 		pageName,
 		id,
+		data,
 	} = props;
 
 	const API = (
@@ -45,11 +46,14 @@ export default function View(props) {
 				<button onClick={handleSearchSubmit} className="search-button">
 					Search
 				</button>
+				<div className="add-params-button-container">
+					<button className="add-params-button" onClick={handleParamsDisplay}>
+						Add extra params
+					</button>
+				</div>
 			</div>
-			<div className="add-params-button-container">
-				<button className="add-params-button" onClick={handleParamsDisplay}>
-					Add extra params
-				</button>
+			<div className="https-request">
+				<p>Current request: {data.response && data.response.req.url}</p>
 			</div>
 		</div>
 	);
