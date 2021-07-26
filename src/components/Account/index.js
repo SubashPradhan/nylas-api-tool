@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import View from './view';
-// import { connect } from 'react-redux';
-// import { fetchData } from '../../actions/handleData';
+import { connect } from 'react-redux';
+import { fetchData } from '../../actions/handleData';
 
 class Account extends Component {
 	constructor(props) {
@@ -22,5 +22,4 @@ class Account extends Component {
 	}
 }
 
-export default Account;
-// export default connect(null, { fetchData })(Account);
+export default connect(null, { fetchData })(Account);
