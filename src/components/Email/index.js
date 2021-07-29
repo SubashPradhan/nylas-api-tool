@@ -8,7 +8,7 @@ class Email extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'messages',
+			pageEndpoint: 'messages',
 			pageName: 'Email API',
 		};
 	}
@@ -16,7 +16,10 @@ class Email extends Component {
 	render() {
 		return (
 			<>
-				<View endpoint={this.state.endpoint} pageName={this.state.pageName} />
+				<View
+					pageEndpoint={this.state.pageEndpoint}
+					pageName={this.state.pageName}
+				/>
 			</>
 		);
 	}

@@ -8,7 +8,7 @@ class Calendar extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'calendars',
+			pageEndpoint: 'calendars',
 			pageName: 'Calendar API',
 		};
 	}
@@ -16,7 +16,10 @@ class Calendar extends Component {
 	render() {
 		return (
 			<>
-				<View endpoint={this.state.endpoint} pageName={this.state.pageName} />
+				<View
+					pageEndpoint={this.state.pageEndpoint}
+					pageName={this.state.pageName}
+				/>
 			</>
 		);
 	}

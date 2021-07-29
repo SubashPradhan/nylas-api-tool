@@ -23,10 +23,14 @@ const params = [
 ];
 
 export default function View(props) {
-	const { endpoint, pageName } = props;
+	const { pageEndpoint, pageName } = props;
 	return (
 		<>
-			<ApiPage options={options} pageName={pageName} endpoint={endpoint} />
+			<ApiPage
+				options={options}
+				pageName={pageName}
+				pageEndpoint={pageEndpoint}
+			/>
 			<Params params={params} />
 		</>
 	);

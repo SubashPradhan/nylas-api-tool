@@ -8,7 +8,7 @@ class Event extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'events',
+			pageEndpoint: 'events',
 			pageName: 'Events API',
 		};
 	}
@@ -16,7 +16,10 @@ class Event extends Component {
 	render() {
 		return (
 			<>
-				<View endpoint={this.state.endpoint} pageName={this.state.pageName} />
+				<View
+					pageEndpoint={this.state.pageEndpoint}
+					pageName={this.state.pageName}
+				/>
 			</>
 		);
 	}

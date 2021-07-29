@@ -8,11 +8,15 @@ const options = [
 ];
 
 export default function View(props) {
-	const { pageName, endpoint } = props;
+	const { pageName, pageEndpoint } = props;
 
 	return (
 		<>
-			<ApiPage options={options} pageName={pageName} endpoint={endpoint} />
+			<ApiPage
+				options={options}
+				pageName={pageName}
+				pageEndpoint={pageEndpoint}
+			/>
 		</>
 	);
 }
