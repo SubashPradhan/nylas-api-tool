@@ -9,7 +9,6 @@ export default function View(props) {
 		handleSearchChange,
 		handleSearchSubmit,
 		handleParamsDisplay,
-		pageEndpoint,
 		options,
 		pageName,
 		id,
