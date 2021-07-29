@@ -8,7 +8,7 @@ class Contacts extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'contacts',
+			pageEndpoint: 'contacts',
 			pageName: 'Contact API',
 		};
 	}
@@ -16,7 +16,10 @@ class Contacts extends Component {
 	render() {
 		return (
 			<>
-				<View endpoint={this.state.endpoint} pageName={this.state.pageName} />
+				<View
+					pageEndpoint={this.state.pageEndpoint}
+					pageName={this.state.pageName}
+				/>
 			</>
 		);
 	}

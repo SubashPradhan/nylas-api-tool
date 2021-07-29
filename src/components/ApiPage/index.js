@@ -10,16 +10,17 @@ class ApiPage extends Component {
 		super(props);
 		this.state = {
 			id: '',
+			currentSelect: '',
 		};
 	}
 
 	handleSelectChange = async e => {
 		const { value } = e.target;
 		await this.setState({
-			endpoint: value,
+			currentSelect: value,
 		});
-		await this.props.fetchData(this.state.endpoint);
-		await this.props.handleEndpointChange(this.state.endpoint);
+		await this.props.fetchData(value);
+		await this.props.handleEndpointChange(value);
 	};
 
 	handleSearchChange = async e => {
@@ -31,7 +32,8 @@ class ApiPage extends Component {
 
 	handleSearchSubmit = e => {
 		e.preventDefault();
-		const { id, endpoint } = this.state;
+		const { endpoint } = this.props;
+		const { id } = this.state;
 		const searchEndpoint = !endpoint ? this.props.endpoint : endpoint;
 		const searchId = !id ? '' : id;
 		this.props.fetchData(`${searchEndpoint}/${searchId}`);
@@ -40,9 +42,9 @@ class ApiPage extends Component {
 
 	// Update page response / endpoint on render
 	componentDidMount() {
-		const { endpoint } = this.props;
-		this.props.fetchData(endpoint);
-		this.props.handleEndpointChange(endpoint);
+		const { pageEndpoint } = this.props;
+		this.props.fetchData(pageEndpoint);
+		this.props.handleEndpointChange(pageEndpoint);
 	}
 
 	render() {
@@ -55,9 +57,10 @@ class ApiPage extends Component {
 					handleParamsDisplay={this.props.handleParamsDisplay}
 					pageName={this.props.pageName}
 					options={this.props.options}
-					endpoint={this.state.endpoint}
-					id={this.state.id}
+					pageEndpoint={this.props.pageEndpoint}
 					data={this.props.data}
+					id={this.state.id}
+					currentSelect={this.state.currentSelect}
 				/>
 			</>
 		);
@@ -67,6 +70,7 @@ class ApiPage extends Component {
 const mapStateToProps = state => {
 	return {
 		data: state.data,
+		// endpoint: state.endpoint,
 	};
 };
 

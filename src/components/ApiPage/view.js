@@ -9,10 +9,11 @@ export default function View(props) {
 		handleSearchChange,
 		handleSearchSubmit,
 		handleParamsDisplay,
-		endpoint,
+		pageEndpoint,
 		options,
 		pageName,
 		id,
+		currentSelect,
 		data,
 	} = props;
 
@@ -22,7 +23,7 @@ export default function View(props) {
 
 			<div className="api-selector">
 				<select
-					value={endpoint}
+					value={currentSelect}
 					name="API"
 					className="selector"
 					onChange={e => handleSelectChange(e)}

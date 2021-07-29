@@ -8,7 +8,7 @@ class Account extends Component {
 		super(props);
 
 		this.state = {
-			endpoint: 'account',
+			pageEndpoint: 'account',
 			pageName: 'Account API',
 		};
 	}
@@ -16,7 +16,10 @@ class Account extends Component {
 	render() {
 		return (
 			<>
-				<View endpoint={this.state.endpoint} pageName={this.state.pageName} />
+				<View
+					pageEndpoint={this.state.pageEndpoint}
+					pageName={this.state.pageName}
+				/>
 			</>
 		);
 	}
