@@ -70,7 +70,7 @@ class ApiPage extends Component {
 const mapStateToProps = state => {
 	return {
 		data: state.data,
-		// endpoint: state.endpoint,
+		endpoint: state.endpoint,
 	};
 };
 
