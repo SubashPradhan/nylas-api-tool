@@ -2,13 +2,18 @@ import '../../styles/response.css';
 
 export default function View(props) {
 	const { data } = props;
-	const statusColor = data.status ? 'red' : 'green';
+
+	const statusColor =
+		data.status <= 299 ? 'green' : data.status <= 399 ? 'orange' : 'red';
+
 	const accountId =
-		data.length && Array.isArray(data)
-			? data[0].account_id
-			: data.account_id
-			? data.account_id
+		data.body && Array.isArray(data.body)
+			? data.body[0].account_id
+			: data.body
+			? data.body.account_id
 			: 'Access token required ';
+
+	const dataPayload = data.body ? data.body : data.response;
 
 	return (
 		<div className="response-body">
@@ -23,7 +28,7 @@ export default function View(props) {
 					<div>Account_id: {accountId}</div>
 				</div>
 				<code>
-					<pre>{JSON.stringify(data, undefined, 2)}</pre>
+					<pre>{JSON.stringify(dataPayload, undefined, 2)}</pre>
 				</code>
 			</div>
 		</div>

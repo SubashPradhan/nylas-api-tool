@@ -11,6 +11,7 @@ class ApiPage extends Component {
 		this.state = {
 			id: '',
 			currentSelect: '',
+			idLoaded: false,
 		};
 	}
 
@@ -41,11 +42,15 @@ class ApiPage extends Component {
 	};
 
 	// Update page response / endpoint on render
-	componentDidMount() {
+	componentDidMount = async () => {
 		const { pageEndpoint } = this.props;
-		this.props.fetchData(pageEndpoint);
-		this.props.handleEndpointChange(pageEndpoint);
-	}
+		await this.props.fetchData(pageEndpoint);
+		await this.props.handleEndpointChange(pageEndpoint);
+		// wait for data to load and then set loading to false
+		await this.setState({
+			isLoaded: true,
+		});
+	};
 
 	render() {
 		return (
@@ -61,6 +66,7 @@ class ApiPage extends Component {
 					data={this.props.data}
 					id={this.state.id}
 					currentSelect={this.state.currentSelect}
+					isLoaded={this.state.isLoaded}
 				/>
 			</>
 		);
