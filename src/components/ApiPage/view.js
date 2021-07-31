@@ -14,6 +14,7 @@ export default function View(props) {
 		id,
 		currentSelect,
 		data,
+		isLoaded,
 	} = props;
 
 	const API = (
@@ -35,7 +36,15 @@ export default function View(props) {
 				</select>
 			</div>
 			<div className="https-request">
-				<p>Current request: {data.response && data.response.req.url}</p>
+				{/* // Make sure that the data is loaded first before to avoid page crash */}
+				{isLoaded ? (
+					<p>
+						Current request:{' '}
+						{data.response ? data.response.req.url : data.req.url}
+					</p>
+				) : (
+					<p>Loading...</p>
+				)}
 			</div>
 
 			<div className="search-container">

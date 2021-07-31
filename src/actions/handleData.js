@@ -14,7 +14,7 @@ export const fetchData = value => async (dispatch, getState) => {
 		const response = await request
 			.get(`${nylasUrl}/${value}`)
 			.set({ Authorization: 'Bearer ' + accessToken });
-		const action = await fetchDataPayload(response.body);
+		const action = await fetchDataPayload(response);
 		return dispatch(action);
 	} catch (error) {
 		const action = await fetchDataPayload(error);
