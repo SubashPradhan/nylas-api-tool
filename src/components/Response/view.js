@@ -7,7 +7,7 @@ export default function View(props) {
 		data.status <= 299 ? 'green' : data.status <= 399 ? 'orange' : 'red';
 
 	const accountId =
-		data.body && Array.isArray(data.body)
+		data.body && Array.isArray(data.body) && data.body.length
 			? data.body[0].account_id
 			: data.body
 			? data.body.account_id
