@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class Response extends Component {
 	render() {
-		return <View data={this.props.data} />;
+		return <View response={this.props.response} />;
 	}
 }
 

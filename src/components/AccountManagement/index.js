@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import View from './view';
+import { connect } from 'react-redux';
+import { handlePostReq } from '../../actions/handlePostReq';
 
 class AccountManagement extends Component {
 	constructor(props) {
@@ -22,4 +24,4 @@ class AccountManagement extends Component {
 	}
 }
 
-export default AccountManagement;
+export default connect(null, { handlePostReq })(AccountManagement);

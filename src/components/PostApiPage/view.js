@@ -7,14 +7,12 @@ import '../../styles/postApi.css';
 export default function View(props) {
 	const {
 		handleSelectChange,
-		// handleSearchChange,
-		// handleSearchSubmit,
-		// handleParamsDisplay,
+		handleInputChange,
+		handleSubmit,
 		options,
 		pageName,
-		// id,
 		currentSelect,
-		// data,
+		dataOnPost,
 		isLoaded,
 	} = props;
 
@@ -37,11 +35,12 @@ export default function View(props) {
 				</select>
 			</div>
 			<div className="https-request">
-				{/* // Make sure that the data is loaded first before to avoid page crash */}
 				{isLoaded ? (
 					<p>
 						Current request:{' '}
-						{/* {data.response ? data.response.req.url : data.req.url} */}
+						{dataOnPost.response
+							? dataOnPost.response.req.url
+							: dataOnPost.req.url}
 					</p>
 				) : (
 					<p>Loading...</p>
@@ -53,13 +52,23 @@ export default function View(props) {
 					className="client-form-input"
 					name="client-id"
 					placeholder="Client ID"
+					onChange={e => handleInputChange(e, 'clientId')}
 				/>
 				<input
 					className="client-form-input"
 					name="client-secret"
 					placeholder="Basic Encoded Client Secret"
+					onChange={e => handleInputChange(e, 'clientSecret')}
 				/>
-				<button className="submit-button">Submit</button>
+				<input
+					className="client-form-input"
+					name="account-id"
+					placeholder="Search by account ID"
+					onChange={e => handleInputChange(e, 'accountId')}
+				/>
+				<button className="submit-button" onClick={e => handleSubmit(e)}>
+					Submit
+				</button>
 			</div>
 		</div>
 	);
@@ -67,7 +76,7 @@ export default function View(props) {
 		<>
 			<Navbar />
 			{APIPost}
-			<Response />
+			<Response response={dataOnPost} />
 			<Footer />
 		</>
 	);

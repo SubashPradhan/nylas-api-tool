@@ -70,7 +70,7 @@ export default function View(props) {
 		<>
 			<Navbar />
 			{API}
-			<Response />
+			<Response response={data} />
 			<Footer />
 		</>
 	);
