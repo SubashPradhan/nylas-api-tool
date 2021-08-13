@@ -4,6 +4,7 @@ import { data } from './handleData';
 import { showMenu } from './handleMenuClick';
 import { endpoint } from './handleEndpointChange';
 import { showParams } from './handleParamsDisplay';
+import { dataOnPost } from './handlePostReq';
 
 export default combineReducers({
 	showMenu,
@@ -11,4 +12,5 @@ export default combineReducers({
 	accessToken,
 	endpoint,
 	showParams,
+	dataOnPost,
 });

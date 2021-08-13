@@ -2,22 +2,21 @@ import Response from '../Response';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import '../../styles/api.css';
+import '../../styles/postApi.css';
 
 export default function View(props) {
 	const {
 		handleSelectChange,
-		handleSearchChange,
-		handleSearchSubmit,
-		handleParamsDisplay,
+		handleInputChange,
+		handleSubmit,
 		options,
 		pageName,
-		id,
 		currentSelect,
-		data,
+		dataOnPost,
 		isLoaded,
 	} = props;
 
-	const API = (
+	const APIPost = (
 		<div className="api-page">
 			<h1 className="title">{pageName}</h1>
 
@@ -36,41 +35,48 @@ export default function View(props) {
 				</select>
 			</div>
 			<div className="https-request">
-				{/* // Make sure that the data is loaded first before to avoid page crash */}
 				{isLoaded ? (
 					<p>
 						Current request:{' '}
-						{data.response ? data.response.req.url : data.req.url}
+						{dataOnPost.response
+							? dataOnPost.response.req.url
+							: dataOnPost.req.url}
 					</p>
 				) : (
 					<p>Loading...</p>
 				)}
 			</div>
 
-			<div className="search-container">
+			<div className="client-form">
 				<input
-					value={id}
-					name="search-by-id"
-					placeholder="Search By ID"
-					className="search-input"
-					onChange={e => handleSearchChange(e)}
+					className="client-form-input"
+					name="client-id"
+					placeholder="Client ID"
+					onChange={e => handleInputChange(e, 'clientId')}
 				/>
-				<button onClick={handleSearchSubmit} className="search-button">
-					Search
+				<input
+					className="client-form-input"
+					name="client-secret"
+					placeholder="Basic Encoded Client Secret"
+					onChange={e => handleInputChange(e, 'clientSecret')}
+				/>
+				<input
+					className="client-form-input"
+					name="account-id"
+					placeholder="Search by account ID"
+					onChange={e => handleInputChange(e, 'accountId')}
+				/>
+				<button className="submit-button" onClick={e => handleSubmit(e)}>
+					Submit
 				</button>
-				<div className="add-params-button-container">
-					<button className="add-params-button" onClick={handleParamsDisplay}>
-						Add extra params
-					</button>
-				</div>
 			</div>
 		</div>
 	);
 	return (
 		<>
 			<Navbar />
-			{API}
-			<Response response={data} />
+			{APIPost}
+			<Response response={dataOnPost} />
 			<Footer />
 		</>
 	);
