@@ -57,13 +57,13 @@ export default function View(props) {
 				<input
 					className="client-form-input"
 					name="client-secret"
-					placeholder="Basic Encoded Client Secret"
+					placeholder="Client Secret"
 					onChange={e => handleInputChange(e, 'clientSecret')}
 				/>
 				<input
 					className="client-form-input"
 					name="account-id"
-					placeholder="Search by account ID"
+					placeholder="Search by acc ID optional"
 					onChange={e => handleInputChange(e, 'accountId')}
 				/>
 				<button className="submit-button" onClick={e => handleSubmit(e)}>
