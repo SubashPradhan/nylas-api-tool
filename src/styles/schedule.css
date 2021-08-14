@@ -10,6 +10,22 @@
   font-size: 2rem;
   border-radius: 0.4rem;
   cursor: pointer;
+  background: linear-gradient(45deg, rgb(226, 245, 226), #00E4BF, #00E4BF);
+  font-style: italic;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  min-width: 10rem;
+  border: none;
+  box-shadow: 3px 7px 7px rgb(196, 211, 196);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.schedule-button:focus{
+outline: none;
+box-shadow: none;
 }
 
 .schedule-button:hover{
