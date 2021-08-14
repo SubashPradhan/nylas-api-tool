@@ -31,17 +31,24 @@ class PostApiPage extends Component {
 	};
 
 	handleSubmit = async e => {
+		const { pageEndpoint } = this.props;
 		e.preventDefault();
-		// CHECK HERE
-		const endpoint = 'accounts-management';
-		await this.props.handlePostReq(endpoint, this.state);
+		await this.props.handlePostReq(pageEndpoint, this.state);
+
+		/// CHECK HERE
+		await this.setState({
+			clientId: null,
+			clientSecret: null,
+			accountId: null,
+		});
 	};
 
 	// Update page response / endpoint on render
 	componentDidMount = async () => {
-		const endpoint = 'accounts-management';
-		await this.props.handlePostReq(endpoint, this.state);
-		await this.props.handleEndpointChange(endpoint);
+		// const endpoint = 'accounts-management';
+		const { pageEndpoint } = this.props;
+		await this.props.handlePostReq(pageEndpoint, this.state);
+		await this.props.handleEndpointChange(pageEndpoint);
 		await this.setState({
 			isLoaded: true,
 		});

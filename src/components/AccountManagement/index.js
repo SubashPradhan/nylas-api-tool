@@ -7,7 +7,7 @@ class AccountManagement extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageEndpoint: 'a/client_id/accounts',
+			pageEndpoint: 'accounts-management',
 			pageName: 'Account Management',
 		};
 	}
