@@ -1,6 +1,6 @@
 export const nylasUrl = 'https://api.nylas.com';
 export const postEndpoint = 'https://nylas-api-tool.herokuapp.com';
-export const development = 'http://localhost:4000';
+// export const postEndpoint = 'http://localhost:4000';
 
 export const pageLinks = [
 	{ name: 'Home', value: '/' },

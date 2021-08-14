@@ -14,12 +14,9 @@ export const handlePostReq = (endpoint, postData) => async dispatch => {
 			.post(`${postEndpoint}/${endpoint}`)
 			.send(postData);
 		const action = await fetchDataPayload(response);
-		// Clean up later
-		console.log('HERE RESULT', response);
 		return dispatch(action);
 	} catch (error) {
 		const action = await fetchDataPayload(error);
-		console.log(error);
 		return dispatch(action);
 	}
 };
