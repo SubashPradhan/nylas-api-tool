@@ -32,18 +32,16 @@ class PostApiPage extends Component {
 
 	handleSubmit = async e => {
 		e.preventDefault();
-		const { clientId, clientSecret, accountId } = this.state;
-		const endpoint = await `a/${clientId}/accounts/${accountId}`;
-		await this.props.handlePostReq(clientSecret, endpoint);
+		// CHECK HERE
+		const endpoint = 'accounts-management';
+		await this.props.handlePostReq(endpoint, this.state);
 	};
 
 	// Update page response / endpoint on render
 	componentDidMount = async () => {
-		const { clientId, clientSecret } = this.state;
-		const endpoint = await `a/${clientId}/accounts`;
+		const endpoint = 'accounts-management';
+		await this.props.handlePostReq(endpoint, this.state);
 		await this.props.handleEndpointChange(endpoint);
-		await this.props.handlePostReq(clientSecret, endpoint);
-		// wait for data to load and then set loading to false
 		await this.setState({
 			isLoaded: true,
 		});
