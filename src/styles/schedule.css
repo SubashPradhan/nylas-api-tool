@@ -1,18 +1,19 @@
 .schedule-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .schedule-button{
+  /* position: absolute; */
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 0.4rem;
   cursor: pointer;
   background: linear-gradient(45deg, rgb(226, 245, 226), #00E4BF, #00E4BF);
   font-style: italic;
-  font-size: 1.4rem;
   letter-spacing: 2px;
   padding: 0.3rem;
   margin: 0.5rem;

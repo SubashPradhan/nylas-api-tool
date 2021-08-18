@@ -65,7 +65,7 @@
   margin: 0.3rem;
   outline-color: #00E4BF;
   outline-width: 0.6rem;
-  display: none;
+  /* display: none; */
 }
 
 .show{
