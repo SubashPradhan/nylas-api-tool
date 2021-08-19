@@ -59,13 +59,16 @@
   outline: none;
 }
 
-.params-input{
+.params-input, .post-input{
   font-size: 1.5rem;
   border-radius: 0.4rem;
   margin: 0.3rem;
   outline-color: #00E4BF;
   outline-width: 0.6rem;
-  /* display: none; */
+}
+
+.params-input{
+  display: none;
 }
 
 .show{
@@ -130,7 +133,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .params-input{
+  .params-input, .post-input{
     font-size: 1rem;
     margin: 0.5rem;
   }

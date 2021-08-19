@@ -1,37 +1,34 @@
 import '../../styles/params.css';
 
-const freeBusy = ['start_time', 'end_time', 'emails'];
-const test = ['duration_minutes', 'start_time', 'end_time', 'interval_minutes'];
-
 export default function View(props) {
 	const {
 		handleButtonClick,
 		handleInputChange,
-		handleInputCreation,
 		handleSubmit,
 		handleParamsDisplay,
-		showButton,
+		changeToCamelCase,
+		showInput,
 		showParams,
-		postParams,
+		postEndpoints,
+		postInputs,
 		postPayload,
 	} = props;
 
-	const paramsButton = postParams.map((param, i) => {
-		// const postPayload = param === ''
-
-		const payload = window[freeBusy];
+	const paramsButton = postEndpoints.map((param, i) => {
+		// Change current name to camelCase to pass in the postPayload object
+		const currentParam = changeToCamelCase(param);
+		const currentPostPayload = postPayload[`${currentParam}`];
 		return (
 			<button
 				key={i}
 				name={param}
 				className="params-button"
-				onClick={e => handleButtonClick(e, payload)}
+				onClick={e => handleButtonClick(e, currentPostPayload)}
 			>
 				{param}
 			</button>
 		);
 	});
-	// const paramsInput = handleInputCreation(freeBusy);
 
 	return (
 		<>
@@ -44,10 +41,8 @@ export default function View(props) {
 			>
 				<h4 className="select-params-text">Select params</h4>
 				<div className="params-button-container">{paramsButton}</div>
-				<div className="params-input-container">
-					{showButton && postPayload}
-				</div>
-				{/* {showButton && ( */}
+				<div className="params-input-container">{showInput && postInputs}</div>
+				{/* {showInput && ( */}
 				<button className="submit-params" onClick={e => handleSubmit(e)}>
 					Search
 				</button>

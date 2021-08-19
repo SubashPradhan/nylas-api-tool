@@ -3,7 +3,16 @@ import '../../styles/schedule.css';
 import Response from '../Response';
 import PostParams from '../PostParams';
 
-const postParams = ['availability/consecutive', 'free-busy'];
+const postEndpoints = ['availability/consecutive', 'free-busy'];
+const postPayload = {
+	freeBusy: ['start_time', 'end_time', 'emails'],
+	availabilityConsecutive: [
+		'duration_minutes',
+		'start_time',
+		'end_time',
+		'interval_minutes',
+	],
+};
 
 export default function View(props) {
 	const { handleScheduleButton } = props;
@@ -31,7 +40,7 @@ export default function View(props) {
 				</button>
 			</div>
 			<Response response={data} />
-			<PostParams postParams={postParams} />
+			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
 		</>
 	);
 }

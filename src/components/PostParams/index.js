@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import View from './view';
 import { connect } from 'react-redux';
-import { fetchData } from '../../actions/handleData';
 import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
 
 class PostParams extends Component {
@@ -10,12 +9,12 @@ class PostParams extends Component {
 
 		this.state = {
 			// Get the params from the parent component and change to object
-			myParams: this.props.postParams.reduce(
+			myParams: this.props.postEndpoints.reduce(
 				(o, key) => ({ ...o, [key]: '' }),
 				{},
 			),
-			showButton: false,
-			postPayload: null,
+			showInput: false,
+			postInputs: null,
 		};
 
 		this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -23,13 +22,13 @@ class PostParams extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleButtonClick(e, postPayload) {
-		const { name } = e.target;
-		const currentInput = document.getElementById(`${name}`);
+	handleButtonClick(e, payload) {
+		// const { name } = e.target;
+		// const currentInput = document.getElementById(`${name}`);
 		// await currentInput.classList.add('show');
 		this.setState({
-			postPayload: this.handleInputCreation([postPayload]),
-			showButton: true,
+			postInputs: this.handleInputCreation(payload),
+			showInput: true,
 		});
 	}
 
@@ -70,7 +69,7 @@ class PostParams extends Component {
 					id={param}
 					key={i}
 					placeholder={param}
-					className="params-input"
+					className="post-input"
 					autoComplete="off"
 					onChange={e => this.handleInputChange(e, `${param}`)}
 				></input>
@@ -79,18 +78,26 @@ class PostParams extends Component {
 		return postInput;
 	};
 
+	// Create a function to change string into camelCase as we will need to pass payload name to create inputs
+	changeToCamelCase = str => {
+		return str
+			.toLowerCase()
+			.replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+	};
+
 	render() {
 		return (
 			<View
 				handleButtonClick={this.handleButtonClick}
 				handleInputChange={this.handleInputChange}
 				handleSubmit={this.handleSubmit}
-				handleInputCreation={this.handleInputCreation}
-				showButton={this.state.showButton}
+				changeToCamelCase={this.changeToCamelCase}
+				showInput={this.state.showInput}
 				showParams={this.props.showParams}
 				handleParamsDisplay={this.props.handleParamsDisplay}
-				postParams={this.props.postParams}
-				postPayload={this.state.postPayload}
+				postEndpoints={this.props.postEndpoints}
+				postInputs={this.state.postInputs}
+				postPayload={this.props.postPayload}
 			/>
 		);
 	}
@@ -103,6 +110,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchData, handleParamsDisplay })(
-	PostParams,
-);
+export default connect(mapStateToProps, { handleParamsDisplay })(PostParams);
