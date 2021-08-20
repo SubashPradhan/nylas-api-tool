@@ -15,8 +15,7 @@ const postPayload = {
 };
 
 export default function View(props) {
-	const { handleScheduleButton } = props;
-	const data = { response: { test: 'hello' } };
+	const { handleScheduleButton, handleParamsDisplay, onPost } = props;
 
 	return (
 		<>
@@ -34,12 +33,12 @@ export default function View(props) {
 					type="button"
 					id="schedule-editor"
 					className="schedule-button"
-					// onClick={handleScheduleButton}
+					onClick={handleParamsDisplay}
 				>
 					Fetch free-busy
 				</button>
 			</div>
-			<Response response={data} />
+			<Response response={onPost} />
 			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
 		</>
 	);

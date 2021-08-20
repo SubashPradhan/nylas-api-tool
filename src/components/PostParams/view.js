@@ -3,7 +3,6 @@ import '../../styles/params.css';
 export default function View(props) {
 	const {
 		handleButtonClick,
-		handleInputChange,
 		handleSubmit,
 		handleParamsDisplay,
 		changeToCamelCase,
@@ -42,11 +41,11 @@ export default function View(props) {
 				<h4 className="select-params-text">Select params</h4>
 				<div className="params-button-container">{paramsButton}</div>
 				<div className="params-input-container">{showInput && postInputs}</div>
-				{/* {showInput && ( */}
-				<button className="submit-params" onClick={e => handleSubmit(e)}>
-					Search
-				</button>
-				{/* )} */}
+				{showInput && (
+					<button className="submit-params" onClick={e => handleSubmit(e)}>
+						Search
+					</button>
+				)}
 				<div className="close-params" onClick={handleParamsDisplay}>
 					X
 				</div>

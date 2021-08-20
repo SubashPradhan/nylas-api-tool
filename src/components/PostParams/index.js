@@ -2,17 +2,15 @@ import { Component } from 'react';
 import View from './view';
 import { connect } from 'react-redux';
 import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
+import { handleEndpointChange } from '../../actions/handleEndpointChange';
+import { handleNylasPost } from '../../actions/handleNylasPost';
 
 class PostParams extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			// Get the params from the parent component and change to object
-			myParams: this.props.postEndpoints.reduce(
-				(o, key) => ({ ...o, [key]: '' }),
-				{},
-			),
+			postData: null,
 			showInput: false,
 			postInputs: null,
 		};
@@ -23,9 +21,10 @@ class PostParams extends Component {
 	}
 
 	handleButtonClick(e, payload) {
-		// const { name } = e.target;
-		// const currentInput = document.getElementById(`${name}`);
-		// await currentInput.classList.add('show');
+		// Set endpoint to the current post button
+		const { name } = e.target;
+		this.props.handleEndpointChange(name);
+
 		this.setState({
 			postInputs: this.handleInputCreation(payload),
 			showInput: true,
@@ -33,29 +32,26 @@ class PostParams extends Component {
 	}
 
 	handleInputChange(e, field) {
-		const { value } = e.target;
-		const myParams = { ...this.state.myParams, [field]: value };
-		this.setState({ myParams });
+		const { value, name } = e.target;
+		// Check if not email as email needs to be send as an array
+		const postData =
+			name !== 'emails'
+				? { ...this.state.postData, [field]: value }
+				: { ...this.state.postData, [field]: [value] };
+		this.setState({ postData });
 	}
 
 	// Create function to empty fields on submit
 	emptyInputValue() {
-		const allInputs = document.querySelectorAll('.params-input');
+		const allInputs = document.querySelectorAll('.post-input');
 		allInputs.forEach(input => (input.value = ''));
-		this.setState({ myParams: {} });
+		this.setState({ postData: {} });
 	}
 
 	handleSubmit = e => {
-		const { myParams } = this.state;
 		e.preventDefault();
-		// Create array of passed parameters with key pair values
-		const arrOfParams = Object.keys(myParams).map(key => [key, myParams[key]]);
-
-		// Check if value exist param[1]
-		// Create query to pass in the API call that matches Nylas calls.
-		const filteredParams = arrOfParams.filter(param => param[1] && param);
-		const myQuery = filteredParams.join('&').replace(/,/g, '=');
-		this.props.fetchData(`${this.props.endpoint}?${myQuery}`);
+		const { postData } = this.state;
+		this.props.handleNylasPost(postData);
 		this.emptyInputValue();
 		this.props.handleParamsDisplay();
 	};
@@ -78,7 +74,8 @@ class PostParams extends Component {
 		return postInput;
 	};
 
-	// Create a function to change string into camelCase as we will need to pass payload name to create inputs
+	// Create a function to change string into camelCase
+	// as we will need to pass payload name to create inputs
 	changeToCamelCase = str => {
 		return str
 			.toLowerCase()
@@ -89,7 +86,6 @@ class PostParams extends Component {
 		return (
 			<View
 				handleButtonClick={this.handleButtonClick}
-				handleInputChange={this.handleInputChange}
 				handleSubmit={this.handleSubmit}
 				changeToCamelCase={this.changeToCamelCase}
 				showInput={this.state.showInput}
@@ -110,4 +106,8 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { handleParamsDisplay })(PostParams);
+export default connect(mapStateToProps, {
+	handleParamsDisplay,
+	handleEndpointChange,
+	handleNylasPost,
+})(PostParams);
