@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import View from './view';
 import { connect } from 'react-redux';
-import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
+import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
 import { handleNylasPost } from '../../actions/handleNylasPost';
 
@@ -53,7 +53,7 @@ class PostParams extends Component {
 		const { postData } = this.state;
 		this.props.handleNylasPost(postData);
 		this.emptyInputValue();
-		this.props.handleParamsDisplay();
+		this.props.handlePostParamsDisplay();
 	};
 
 	// Create a function to create inputs
@@ -89,8 +89,8 @@ class PostParams extends Component {
 				handleSubmit={this.handleSubmit}
 				changeToCamelCase={this.changeToCamelCase}
 				showInput={this.state.showInput}
-				showParams={this.props.showParams}
-				handleParamsDisplay={this.props.handleParamsDisplay}
+				showPostParams={this.props.showPostParams}
+				handlePostParamsDisplay={this.props.handlePostParamsDisplay}
 				postEndpoints={this.props.postEndpoints}
 				postInputs={this.state.postInputs}
 				postPayload={this.props.postPayload}
@@ -102,12 +102,12 @@ class PostParams extends Component {
 const mapStateToProps = state => {
 	return {
 		endpoint: state.endpoint,
-		showParams: state.showParams,
+		showPostParams: state.showPostParams,
 	};
 };
 
 export default connect(mapStateToProps, {
-	handleParamsDisplay,
+	handlePostParamsDisplay,
 	handleEndpointChange,
 	handleNylasPost,
 })(PostParams);

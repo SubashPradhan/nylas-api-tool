@@ -3,10 +3,10 @@ import '../../styles/schedule.css';
 import Response from '../Response';
 import PostParams from '../PostParams';
 
-const postEndpoints = ['availability/consecutive', 'free-busy'];
+const postEndpoints = ['calendars/free-busy'];
 const postPayload = {
-	freeBusy: ['start_time', 'end_time', 'emails'],
-	availabilityConsecutive: [
+	calendarsFreeBusy: ['start_time', 'end_time', 'emails'],
+	calendarsAvailabilityConsecutive: [
 		'duration_minutes',
 		'start_time',
 		'end_time',
@@ -15,7 +15,7 @@ const postPayload = {
 };
 
 export default function View(props) {
-	const { handleScheduleButton, handleParamsDisplay, onPost } = props;
+	const { handleScheduleButton, handlePostParamsDisplay, onPost } = props;
 
 	return (
 		<>
@@ -33,9 +33,9 @@ export default function View(props) {
 					type="button"
 					id="schedule-editor"
 					className="schedule-button"
-					onClick={handleParamsDisplay}
+					onClick={handlePostParamsDisplay}
 				>
-					Fetch free-busy
+					Post /calendars
 				</button>
 			</div>
 			<Response response={onPost} />

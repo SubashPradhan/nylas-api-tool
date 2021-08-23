@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchData } from '../../actions/handleData';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
 import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
+import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
 
 class ApiPage extends Component {
 	constructor(props) {
@@ -60,6 +61,7 @@ class ApiPage extends Component {
 					handleSearchChange={this.handleSearchChange}
 					handleSearchSubmit={this.handleSearchSubmit}
 					handleParamsDisplay={this.props.handleParamsDisplay}
+					handlePostParamsDisplay={this.props.handlePostParamsDisplay}
 					pageName={this.props.pageName}
 					options={this.props.options}
 					pageEndpoint={this.props.pageEndpoint}
@@ -84,4 +86,5 @@ export default connect(mapStateToProps, {
 	fetchData,
 	handleEndpointChange,
 	handleParamsDisplay,
+	handlePostParamsDisplay,
 })(ApiPage);

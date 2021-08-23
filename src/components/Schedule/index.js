@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import View from './view';
 import { connect } from 'react-redux';
-import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
+import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
 
 const nylas = window.nylas;
 
@@ -37,7 +37,7 @@ class Schedule extends Component {
 			<>
 				<View
 					handleScheduleButton={this.handleScheduleButton}
-					handleParamsDisplay={this.props.handleParamsDisplay}
+					handlePostParamsDisplay={this.props.handlePostParamsDisplay}
 					onPost={this.props.onPost}
 				/>
 			</>
@@ -52,4 +52,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { handleParamsDisplay })(Schedule);
+export default connect(mapStateToProps, { handlePostParamsDisplay })(Schedule);

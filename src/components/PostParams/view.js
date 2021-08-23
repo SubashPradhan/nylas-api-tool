@@ -4,10 +4,10 @@ export default function View(props) {
 	const {
 		handleButtonClick,
 		handleSubmit,
-		handleParamsDisplay,
+		handlePostParamsDisplay,
 		changeToCamelCase,
 		showInput,
-		showParams,
+		showPostParams,
 		postEndpoints,
 		postInputs,
 		postPayload,
@@ -17,6 +17,7 @@ export default function View(props) {
 		// Change current name to camelCase to pass in the postPayload object
 		const currentParam = changeToCamelCase(param);
 		const currentPostPayload = postPayload[`${currentParam}`];
+
 		return (
 			<button
 				key={i}
@@ -33,12 +34,12 @@ export default function View(props) {
 		<>
 			<div
 				className={
-					showParams
+					showPostParams
 						? 'params-container display-params-container'
 						: 'params-container'
 				}
 			>
-				<h4 className="select-params-text">Select params</h4>
+				<h4 className="select-params-text">Select Endpoints</h4>
 				<div className="params-button-container">{paramsButton}</div>
 				<div className="params-input-container">{showInput && postInputs}</div>
 				{showInput && (
@@ -46,7 +47,7 @@ export default function View(props) {
 						Search
 					</button>
 				)}
-				<div className="close-params" onClick={handleParamsDisplay}>
+				<div className="close-params" onClick={handlePostParamsDisplay}>
 					X
 				</div>
 				<div className="reference-links-container">

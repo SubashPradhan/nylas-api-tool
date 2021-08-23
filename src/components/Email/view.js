@@ -1,6 +1,7 @@
 import '../../styles/api.css';
 import ApiPage from '../ApiPage';
 import Params from '../Params';
+import PostParams from '../PostParams';
 
 const options = [
 	{
@@ -51,6 +52,20 @@ const params = [
 	'last_message_after',
 ];
 
+const postEndpoints = ['send'];
+const postPayload = {
+	send: [
+		'subject',
+		'to',
+		'cc',
+		'bcc',
+		'from',
+		'reply_to',
+		'reply_to_messge_id',
+		'body',
+		'file_ids',
+	],
+};
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
 
@@ -62,6 +77,7 @@ export default function View(props) {
 				pageEndpoint={pageEndpoint}
 			/>
 			<Params params={params} />
+			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
 		</>
 	);
 }

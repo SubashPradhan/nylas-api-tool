@@ -9,6 +9,7 @@ export default function View(props) {
 		handleSearchChange,
 		handleSearchSubmit,
 		handleParamsDisplay,
+		handlePostParamsDisplay,
 		options,
 		pageName,
 		id,
@@ -61,6 +62,12 @@ export default function View(props) {
 				<div className="add-params-button-container">
 					<button className="add-params-button" onClick={handleParamsDisplay}>
 						Add extra params
+					</button>
+					<button
+						className="add-params-button"
+						onClick={handlePostParamsDisplay}
+					>
+						Post requests
 					</button>
 				</div>
 			</div>

@@ -13,7 +13,7 @@ export const handleNylasPost = postData => async (dispatch, getState) => {
 	// Fix the post url manipulation
 	try {
 		const response = await request
-			.post(`${nylasUrl}/calendars/${endpoint}`)
+			.post(`${nylasUrl}/${endpoint}`)
 			.set({ Authorization: 'Bearer ' + accessToken })
 			.send(postData);
 		const action = await nylasPostPayload(response);
