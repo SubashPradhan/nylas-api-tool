@@ -9,7 +9,7 @@ export default function View(props) {
 		handleSearchChange,
 		handleSearchSubmit,
 		handleParamsDisplay,
-		// handlePostParamsDisplay,
+		handlePostParamsDisplay,
 		options,
 		pageName,
 		id,
@@ -48,27 +48,29 @@ export default function View(props) {
 				)}
 			</div>
 
-			<div className="search-container">
-				<input
-					value={id}
-					name="search-by-id"
-					placeholder="Search By ID"
-					className="search-input"
-					onChange={e => handleSearchChange(e)}
-				/>
-				<button onClick={handleSearchSubmit} className="search-button">
-					Search
-				</button>
+			<div className="button-container">
+				<div className="search-container">
+					<input
+						value={id}
+						name="search-by-id"
+						placeholder="Search By ID"
+						className="search-input"
+						onChange={e => handleSearchChange(e)}
+					/>
+					<button onClick={handleSearchSubmit} className="search-button">
+						Search
+					</button>
+				</div>
 				<div className="add-params-button-container">
 					<button className="add-params-button" onClick={handleParamsDisplay}>
 						Add extra params
 					</button>
-					{/* <button
+					<button
 						className="add-params-button"
 						onClick={handlePostParamsDisplay}
 					>
 						Post requests
-					</button> */}
+					</button>
 				</div>
 			</div>
 		</div>

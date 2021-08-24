@@ -52,7 +52,7 @@ const params = [
 	'last_message_after',
 ];
 
-const postEndpoints = ['send'];
+const postEndpoints = ['send', 'folders'];
 const postPayload = {
 	send: [
 		'subject',
@@ -65,6 +65,7 @@ const postPayload = {
 		'body',
 		'file_ids',
 	],
+	folders: ['display_name'],
 };
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;

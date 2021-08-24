@@ -69,6 +69,7 @@ class ApiPage extends Component {
 					id={this.state.id}
 					currentSelect={this.state.currentSelect}
 					isLoaded={this.state.isLoaded}
+					onPost={this.props.onPost}
 				/>
 			</>
 		);
@@ -78,6 +79,7 @@ class ApiPage extends Component {
 const mapStateToProps = state => {
 	return {
 		data: state.data,
+		onPost: state.onPost,
 		endpoint: state.endpoint,
 	};
 };
