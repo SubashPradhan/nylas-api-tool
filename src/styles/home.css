@@ -5,11 +5,11 @@ body{
   padding:0;
 }
 
-.title{
-  margin-top: -3rem;
+.main-title{
+  margin-top: -3.5rem;
 }
 
-.title, .sub-title{
+.main-title, .sub-title{
   text-align: center;
 }
 
@@ -68,13 +68,13 @@ body{
   body{
     letter-spacing: 0.03rem;
   }
-  .title{
-      margin-top: 2rem;
+  .main-title{
+      margin-top: -1rem;
+      font-size: 1.7rem;
   }
 
   .api-btn-container{
       margin-top: 2rem;
-      /* margin-bottom: 2rem; */
   }
   .api-btn{
       width: 100%;

@@ -1,4 +1,6 @@
 .api-page{
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,12 +13,17 @@
   width: 15%;
 }
 
+.title{
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: -5rem;
+}
+
 .selector{
   border: 2px solid black;
   border-radius: 0.8rem;
-  height: 3.5rem;
+  height: 2.5rem;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background: #00E4BF;
   outline: none;
 }
@@ -24,7 +31,6 @@
 .button-container{
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -38,6 +44,7 @@
   outline: none;
   margin: 0.5rem;
 }
+
 .search-input{
   width: 20rem;
 }
@@ -70,7 +77,6 @@
   max-width: 90%;
   word-break: break-all;
   font-size: 0.9rem;
-  /* font-weight: bold; */
 }
 
 @media screen and (max-width: 600px){
@@ -95,4 +101,9 @@
   .add-params-button{
     display: none;
   }
+
+  .title{
+    margin-top: -1rem;
+    font-size: 2rem;
+}
 }
