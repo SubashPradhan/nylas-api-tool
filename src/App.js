@@ -9,6 +9,7 @@ import Schedule from './components/Schedule';
 import Event from './components/Event';
 import Account from './components/Account';
 import AccountManagement from './components/AccountManagement';
+import Datacenter from './components/Datacenter';
 
 class App extends Component {
 	render() {
@@ -23,6 +24,7 @@ class App extends Component {
 				<Route path="/account" component={Account} />
 				<Route path="/account-management" component={AccountManagement} />
 				<Route path="/schedule-editor" component={Schedule} />
+				<Route path="/data-center" component={Datacenter} />
 			</>
 		);
 	}

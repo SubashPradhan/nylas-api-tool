@@ -3,14 +3,13 @@ import { pageLinks } from '../../constants';
 import '../../styles/home.css';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import Datacenter from '../Datacenter';
 
 export default function View(props) {
 	const { handleChange } = props;
 
 	const homePage = (
 		<div className="home">
-			<h1 className="title">Welcome to the Nylas API</h1>
-			<h2 className="sub-title"> Fetch every data with a click.</h2>
 			<div className="access-token-input-field">
 				<label className="access-token-label">Enter access token</label>
 				<input
@@ -29,10 +28,11 @@ export default function View(props) {
 		</div>
 	);
 	return (
-		<>
+		<div className="main-page">
 			<Navbar />
+			<Datacenter />
 			{homePage}
 			<Footer />
-		</>
+		</div>
 	);
 }
