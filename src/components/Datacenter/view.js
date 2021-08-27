@@ -14,16 +14,13 @@ export default function View(props) {
 					<div className="data-center-container">
 						<h2 className="select-title">Choose a Data Center</h2>
 						{dataCenter.map((center, i) => (
-							<>
-								<button
-									key={i}
-									className="data-center-button"
-									value={center.value}
-									onClick={e => onDataCenterButtonClick(e, center.value)}
-								>
-									{center.name}
-								</button>
-							</>
+							<button
+								key={i}
+								className="data-center-button"
+								onClick={e => onDataCenterButtonClick(e, center.value)}
+							>
+								{center.name}
+							</button>
 						))}
 					</div>
 				</div>
