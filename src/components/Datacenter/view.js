@@ -9,7 +9,7 @@ export default function View(props) {
 		<>
 			{showDataCenterDisplay && (
 				<div className="data-center-selector-page">
-					<h1 className="welcome-title">Welcome to the Nylas API</h1>
+					<h1 className="welcome-title">Nylas API Tool</h1>
 					<h2 className="sub-title">Fetch every data with a click.</h2>
 					<div className="data-center-container">
 						<h2 className="select-title">Choose a data center.</h2>

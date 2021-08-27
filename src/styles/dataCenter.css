@@ -15,12 +15,10 @@
 
 .select-title{
   color: rgb(255, 255, 255);
-  /* font-size: 1.5rem; */
-  /* font-weight: bold; */
 }
 
 .welcome-title{
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
 .data-center-container{
@@ -60,7 +58,6 @@
 
   .data-center-container{
       margin-top: 2rem;
-      /* margin-bottom: 2rem; */
   }
   .data-center-button{
       width: 100%;
