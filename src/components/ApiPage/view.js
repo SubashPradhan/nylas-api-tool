@@ -1,6 +1,7 @@
 import Response from '../Response';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import Datacenter from '../Datacenter';
 import '../../styles/api.css';
 
 export default function View(props) {
@@ -78,6 +79,7 @@ export default function View(props) {
 	return (
 		<>
 			<Navbar />
+			<Datacenter />
 			{API}
 			<Response response={data} />
 			<Footer />
