@@ -10,7 +10,12 @@
 
 .welcome-title, .sub-title, .select-title{
   text-align: center;
-  color: rgb(230, 230, 230);
+  /* color: rgb(230, 230, 230); */
+  color: #00E4BF;
+}
+
+.select-title{
+  color: rgb(255, 255, 255);
 }
 
 .welcome-title{
@@ -39,7 +44,7 @@
   text-align: center;
   text-decoration: none;
   color: chocolate;
-  background: aliceblue;
+  background: #f5f7f6;
 }
 
 .data-center-button:hover{

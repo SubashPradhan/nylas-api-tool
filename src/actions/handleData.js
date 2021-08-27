@@ -1,5 +1,4 @@
 import request from 'superagent';
-import { nylasUrl } from '../constants';
 
 export const DATA_FETCHED = 'DATA_FETCHED';
 
@@ -9,10 +8,10 @@ const fetchDataPayload = payload => ({
 });
 
 export const fetchData = value => async (dispatch, getState) => {
-	const { accessToken } = getState();
+	const { accessToken, currentDataCenterUrl } = getState();
 	try {
 		const response = await request
-			.get(`${nylasUrl}/${value}`)
+			.get(`${currentDataCenterUrl}/${value}`)
 			.set({ Authorization: 'Bearer ' + accessToken });
 		const action = await fetchDataPayload(response);
 		return dispatch(action);

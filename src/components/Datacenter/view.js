@@ -3,10 +3,11 @@ import '../../styles/dataCenter.css';
 import '../../styles/home.css';
 
 export default function View(props) {
-	const { showDataCenterSelection, onDataCenterButtonClick } = props;
+	const { showDataCenterDisplay, onDataCenterButtonClick } = props;
+
 	return (
 		<>
-			{showDataCenterSelection && (
+			{showDataCenterDisplay && (
 				<div className="data-center-selector-page">
 					<h1 className="welcome-title">Welcome to the Nylas API</h1>
 					<h2 className="sub-title">Fetch every data with a click.</h2>
@@ -18,7 +19,7 @@ export default function View(props) {
 									key={i}
 									className="data-center-button"
 									value={center.value}
-									onClick={onDataCenterButtonClick}
+									onClick={e => onDataCenterButtonClick(e, center.value)}
 								>
 									{center.name}
 								</button>
