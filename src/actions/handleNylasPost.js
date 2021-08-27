@@ -1,5 +1,4 @@
 import request from 'superagent';
-import { nylasUrl } from '../constants';
 
 export const ON_POST = 'ON_POST';
 
@@ -9,11 +8,11 @@ const nylasPostPayload = payload => ({
 });
 
 export const handleNylasPost = postData => async (dispatch, getState) => {
-	const { accessToken, endpoint } = getState();
+	const { accessToken, endpoint, currentDataCenterUrl } = getState();
 	// Fix the post url manipulation
 	try {
 		const response = await request
-			.post(`${nylasUrl}/${endpoint}`)
+			.post(`${currentDataCenterUrl}/${endpoint}`)
 			.set({ Authorization: 'Bearer ' + accessToken })
 			.send(postData);
 		const action = await nylasPostPayload(response);

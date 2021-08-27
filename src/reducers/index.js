@@ -7,6 +7,8 @@ import { showParams } from './handleParamsDisplay';
 import { showPostParams } from './handlePostParamsDisplay';
 import { dataOnPost } from './handlePostReq';
 import { onPost } from './handleNylasPost';
+import { showDataCenterDisplay } from './handleDataCenterDisplay';
+import { currentDataCenterUrl } from './handleDataCenterUrl';
 
 export default combineReducers({
 	showMenu,
@@ -17,4 +19,6 @@ export default combineReducers({
 	showPostParams,
 	dataOnPost,
 	onPost,
+	showDataCenterDisplay,
+	currentDataCenterUrl,
 });

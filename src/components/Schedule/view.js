@@ -2,6 +2,7 @@ import Navbar from '../Navbar';
 import '../../styles/schedule.css';
 import Response from '../Response';
 import PostParams from '../PostParams';
+import Datacenter from '../Datacenter';
 
 const postEndpoints = ['calendars/free-busy'];
 const postPayload = {
@@ -20,6 +21,7 @@ export default function View(props) {
 	return (
 		<>
 			<Navbar />
+			<Datacenter />
 			<div className="schedule-container">
 				<button
 					type="button"

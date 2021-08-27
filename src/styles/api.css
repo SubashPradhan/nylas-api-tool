@@ -1,4 +1,6 @@
 .api-page{
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +12,27 @@
   text-align: center;
   width: 15%;
 }
+
+/* margin-top negative to cover navbar height 5rem */
+.title{
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: -4rem;
+}
+
 .selector{
   border: 2px solid black;
   border-radius: 0.8rem;
-  height: 3.5rem;
+  height: 2.5rem;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background: #00E4BF;
   outline: none;
+}
+
+.button-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-container{
@@ -30,6 +45,7 @@
   outline: none;
   margin: 0.5rem;
 }
+
 .search-input{
   width: 20rem;
 }
@@ -62,7 +78,7 @@
   max-width: 90%;
   word-break: break-all;
   font-size: 0.9rem;
-  /* font-weight: bold; */
+  text-align: center;
 }
 
 @media screen and (max-width: 600px){
@@ -70,12 +86,16 @@
     width: 50%;
   }
 
-  .search-container{
+  .button-container{
     flex-direction: column;
   }
 
   .search-input, .search-button{
     margin-top: 0.8rem;
+  }
+
+  .search-container{
+   flex-direction: column;
   }
 }
 
@@ -83,4 +103,9 @@
   .add-params-button{
     display: none;
   }
+
+  .title{
+    margin-top: -1rem;
+    font-size: 2rem;
+}
 }

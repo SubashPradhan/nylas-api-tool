@@ -5,11 +5,11 @@ body{
   padding:0;
 }
 
-.title{
-  margin-top: -3rem;
+.main-title{
+  margin-top: -3.5rem;
 }
 
-.title, .sub-title{
+.main-title, .sub-title{
   text-align: center;
 }
 
@@ -19,6 +19,7 @@ body{
 
 .access-token-input{
   outline: none;
+  margin-top: 1rem;
   width: 30%;
   height: 2rem;
   font-size: 1rem;
@@ -34,8 +35,10 @@ body{
   align-items: center;
   color: chocolate;
 }
+
+/* margin-top negative to cover navbar height 5rem */
 .access-token-input-field{
-  margin-top: 2.5rem;
+  margin-top: -3rem;
 }
 
 .api-btn-container{
@@ -43,6 +46,7 @@ body{
   margin-top: 2rem;
   margin-bottom: 1rem
 }
+
 .api-btn{
   display: flex;
   justify-content: center;
@@ -68,13 +72,13 @@ body{
   body{
     letter-spacing: 0.03rem;
   }
-  .title{
-      margin-top: 2rem;
+  .main-title{
+      margin-top: -1rem;
+      font-size: 1.7rem;
   }
 
   .api-btn-container{
       margin-top: 2rem;
-      /* margin-bottom: 2rem; */
   }
   .api-btn{
       width: 100%;
@@ -82,5 +86,9 @@ body{
   }
   .access-token-input{
     width: 50%;
+  }
+
+  .access-token-input-field{
+    margin-top: -1rem;
   }
 }

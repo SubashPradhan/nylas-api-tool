@@ -1,6 +1,7 @@
 import Response from '../Response';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import Datacenter from '../Datacenter';
 import '../../styles/api.css';
 
 export default function View(props) {
@@ -48,17 +49,19 @@ export default function View(props) {
 				)}
 			</div>
 
-			<div className="search-container">
-				<input
-					value={id}
-					name="search-by-id"
-					placeholder="Search By ID"
-					className="search-input"
-					onChange={e => handleSearchChange(e)}
-				/>
-				<button onClick={handleSearchSubmit} className="search-button">
-					Search
-				</button>
+			<div className="button-container">
+				<div className="search-container">
+					<input
+						value={id}
+						name="search-by-id"
+						placeholder="Search By ID"
+						className="search-input"
+						onChange={e => handleSearchChange(e)}
+					/>
+					<button onClick={handleSearchSubmit} className="search-button">
+						Search
+					</button>
+				</div>
 				<div className="add-params-button-container">
 					<button className="add-params-button" onClick={handleParamsDisplay}>
 						Add extra params
@@ -76,6 +79,7 @@ export default function View(props) {
 	return (
 		<>
 			<Navbar />
+			<Datacenter />
 			{API}
 			<Response response={data} />
 			<Footer />
