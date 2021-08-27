@@ -13,9 +13,10 @@
   width: 15%;
 }
 
+/* margin-top negative to cover navbar height 5rem */
 .title{
   font-family: 'Courier New', Courier, monospace;
-  margin-top: -5rem;
+  margin-top: -4rem;
 }
 
 .selector{
@@ -77,6 +78,7 @@
   max-width: 90%;
   word-break: break-all;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px){

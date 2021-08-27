@@ -9,7 +9,6 @@ export const dataCenter = [
 ];
 
 export const pageLinks = [
-	{ name: 'Home', value: '/' },
 	{ name: 'Email API', value: '/email' },
 	{ name: 'Calendar API', value: '/calendars' },
 	{ name: 'Event API', value: '/events' },

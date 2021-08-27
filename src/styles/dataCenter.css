@@ -10,12 +10,13 @@
 
 .welcome-title, .sub-title, .select-title{
   text-align: center;
-  /* color: rgb(230, 230, 230); */
   color: #00E4BF;
 }
 
 .select-title{
   color: rgb(255, 255, 255);
+  /* font-size: 1.5rem; */
+  /* font-weight: bold; */
 }
 
 .welcome-title{

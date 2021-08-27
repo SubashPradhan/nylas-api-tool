@@ -12,7 +12,7 @@ export default function View(props) {
 					<h1 className="welcome-title">Welcome to the Nylas API</h1>
 					<h2 className="sub-title">Fetch every data with a click.</h2>
 					<div className="data-center-container">
-						<h2 className="select-title">Choose a Data Center</h2>
+						<h2 className="select-title">Choose a data center.</h2>
 						{dataCenter.map((center, i) => (
 							<button
 								key={i}
