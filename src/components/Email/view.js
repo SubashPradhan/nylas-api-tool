@@ -54,19 +54,10 @@ const params = [
 
 const postEndpoints = ['send', 'folders'];
 const postPayload = {
-	send: [
-		'subject',
-		'to',
-		'cc',
-		'bcc',
-		'from',
-		'reply_to',
-		'reply_to_messge_id',
-		'body',
-		'file_ids',
-	],
+	send: ['subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
 	folders: ['display_name'],
 };
+
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
 

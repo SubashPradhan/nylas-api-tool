@@ -1,5 +1,6 @@
 import ApiPage from '../ApiPage';
 import Params from '../Params';
+import PostParams from '../PostParams';
 
 const options = [
 	{
@@ -25,6 +26,19 @@ const params = [
 	'metadata_pair',
 	'expand_recurring',
 ];
+
+const postEndpoints = ['events'];
+const postPayload = {
+	events: [
+		'title',
+		'calendar_id',
+		'busy',
+		'read_only',
+		'participants_name',
+		'participants_email',
+	],
+};
+
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
 	return (
@@ -35,6 +49,7 @@ export default function View(props) {
 				pageEndpoint={pageEndpoint}
 			/>
 			<Params params={params} />
+			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
 		</>
 	);
 }

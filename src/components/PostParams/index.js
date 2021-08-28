@@ -39,18 +39,20 @@ class PostParams extends Component {
 				? { ...this.state.postData, [field]: value }
 				: { ...this.state.postData, [field]: [value] };
 		this.setState({ postData });
+		this.setState({ postData });
 	}
 
 	// Create function to empty fields on submit
 	emptyInputValue() {
 		const allInputs = document.querySelectorAll('.post-input');
 		allInputs.forEach(input => (input.value = ''));
-		this.setState({ postData: {} });
+		// this.setState({ postData: {} });
 	}
 
 	handleSubmit = e => {
 		e.preventDefault();
 		const { postData } = this.state;
+		console.log(this.state);
 		this.props.handleNylasPost(postData);
 		this.emptyInputValue();
 		this.props.handlePostParamsDisplay();
