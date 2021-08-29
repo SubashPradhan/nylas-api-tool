@@ -1,4 +1,5 @@
 import ApiPage from '../ApiPage';
+import Params from '../Params';
 
 const options = [
 	{
@@ -6,6 +7,8 @@ const options = [
 		value: 'account',
 	},
 ];
+
+const params = ['sync_progress'];
 
 export default function View(props) {
 	const { pageName, pageEndpoint } = props;
@@ -17,6 +20,7 @@ export default function View(props) {
 				pageName={pageName}
 				pageEndpoint={pageEndpoint}
 			/>
+			<Params params={params} />
 		</>
 	);
 }
