@@ -40,6 +40,9 @@ export default function View(props) {
 				}
 			>
 				<h4 className="select-params-text">Select Endpoints</h4>
+				<h4 className="notifications-text">
+					Not all post endpoints are supported, coming soon...
+				</h4>
 				<div className="params-button-container">{paramsButton}</div>
 				<div className="params-input-container">{showInput && postInputs}</div>
 				{showInput && (
