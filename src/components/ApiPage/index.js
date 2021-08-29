@@ -24,6 +24,7 @@ class ApiPage extends Component {
 		});
 		await this.props.fetchData(value);
 		await this.props.handleEndpointChange(value);
+		await this.props.handleRequestMethod('GET');
 	};
 
 	handleSearchChange = async e => {
