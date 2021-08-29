@@ -54,7 +54,6 @@ class PostParams extends Component {
 	handleSubmit = async e => {
 		e.preventDefault();
 		const { postData } = this.state;
-		console.log(this.state);
 		await this.props.handleNylasPost(postData);
 		await this.emptyInputValue();
 		await this.props.handlePostParamsDisplay();
