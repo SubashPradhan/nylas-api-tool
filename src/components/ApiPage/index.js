@@ -5,6 +5,7 @@ import { fetchData } from '../../actions/handleData';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
 import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
 import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
+import { handleRequestMethod } from '../../actions/handleRequestMethod';
 
 class ApiPage extends Component {
 	constructor(props) {
@@ -40,13 +41,16 @@ class ApiPage extends Component {
 		const searchId = !id ? '' : id;
 		this.props.fetchData(`${searchEndpoint}/${searchId}`);
 		this.setState({ id: '' });
+		this.props.handleRequestMethod('GET');
 	};
 
 	// Update page response / endpoint on render
+	// Everytime API page loads make sure is a GET request as a default bahaviour
 	componentDidMount = async () => {
 		const { pageEndpoint } = this.props;
 		await this.props.fetchData(pageEndpoint);
 		await this.props.handleEndpointChange(pageEndpoint);
+		await this.props.handleRequestMethod('GET');
 		// wait for data to load and then set loading to false
 		await this.setState({
 			isLoaded: true,
@@ -91,4 +95,5 @@ export default connect(mapStateToProps, {
 	handleEndpointChange,
 	handleParamsDisplay,
 	handlePostParamsDisplay,
+	handleRequestMethod,
 })(ApiPage);
