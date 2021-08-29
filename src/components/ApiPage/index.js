@@ -13,7 +13,7 @@ class ApiPage extends Component {
 		this.state = {
 			id: '',
 			currentSelect: '',
-			idLoaded: false,
+			isLoaded: false,
 		};
 	}
 
