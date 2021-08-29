@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
 import { handleNylasPost } from '../../actions/handleNylasPost';
+import { handleRequestMethod } from '../../actions/handleRequestMethod';
 
 class PostParams extends Component {
 	constructor(props) {
@@ -49,6 +50,7 @@ class PostParams extends Component {
 		// this.setState({ postData: {} });
 	}
 
+	// Since this is a Post page we can manually assign 'POST' to the request method
 	handleSubmit = e => {
 		e.preventDefault();
 		const { postData } = this.state;
@@ -56,6 +58,7 @@ class PostParams extends Component {
 		this.props.handleNylasPost(postData);
 		this.emptyInputValue();
 		this.props.handlePostParamsDisplay();
+		this.props.handleRequestMethod('POST');
 	};
 
 	// Create a function to create inputs
@@ -112,4 +115,5 @@ export default connect(mapStateToProps, {
 	handlePostParamsDisplay,
 	handleEndpointChange,
 	handleNylasPost,
+	handleRequestMethod,
 })(PostParams);
