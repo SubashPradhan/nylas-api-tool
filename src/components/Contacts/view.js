@@ -26,16 +26,18 @@ const params = [
 const postEndpoints = ['contacts'];
 const postPayload = {
 	contacts: [
-		'birthday',
+		'email',
+		'type',
+		'given_name',
+		'middle_name',
+		'surname',
+		'nickname',
 		'company_name',
-		'emails',
+		'office_location',
+		'group',
+		'birthday',
 		'job_title',
 		'manager_name',
-		'middle_name',
-		'nickname',
-		'office_location',
-		'surname',
-		'group',
 	],
 };
 

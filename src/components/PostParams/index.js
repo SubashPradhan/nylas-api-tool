@@ -14,6 +14,7 @@ class PostParams extends Component {
 			postData: null,
 			showInput: false,
 			postInputs: null,
+			dataToSend: null,
 		};
 
 		this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -33,28 +34,82 @@ class PostParams extends Component {
 	}
 
 	handleInputChange(e, field) {
-		const { value, name } = e.target;
+		const { value } = e.target;
 		// Check if not email as email needs to be send as an array
-		const postData =
-			name !== 'emails'
-				? { ...this.state.postData, [field]: value }
-				: { ...this.state.postData, [field]: [value] };
-		this.setState({ postData });
+		const postData = { ...this.state.postData, [field]: value };
 		this.setState({ postData });
 	}
+
+	// Function to handle data type while sending
+	// Handle each endpoint in a single if else condition
+	// Not doing so might result on data conversion issue.
+	handlePostData = async data => {
+		// Check if some value exists in the given post data and handle their data type to send
+		// >> setState: dataToSend
+		// Conver give data into an array
+		const arrayOfDatas = await Object.keys(data);
+
+		// Check if the endpoint is contacts and has emails field
+		// This needs to be done on the top as free-busy also has emails field
+		if (
+			(this.props.endpoint === 'contacts' && arrayOfDatas.includes('email')) ||
+			(this.props.endpoint === 'contacts' && arrayOfDatas.includes('type'))
+		) {
+			const { email, type } = data;
+			const dataToSend = { ...data, emails: [{ email: email, type: type }] };
+			await this.setState({ dataToSend });
+		}
+
+		// Check if the data contains to field and convert into to:[{}] /send
+		else if (arrayOfDatas.includes('to')) {
+			const { to } = data;
+			const dataToSend = { ...data, to: [{ email: to }] };
+			await this.setState({ dataToSend });
+		}
+
+		// Check if data contains emails field free/busy
+		else if (arrayOfDatas.includes('emails')) {
+			const { emails } = data;
+			const dataToSend = { ...data, emails: [emails] };
+			await this.setState({ dataToSend });
+		}
+
+		// Check if data contains participants field /events
+		else if (
+			arrayOfDatas.includes('participants') ||
+			arrayOfDatas.includes('when_unix_timestamp')
+		) {
+			const { participants, when_unix_timestamp } = data;
+			const dataToSend = {
+				...data,
+				participants: [{ email: participants }],
+				when: { time: when_unix_timestamp },
+			};
+			this.setState({ dataToSend });
+		}
+
+		// If none of above then setState to the same data
+		else {
+			this.setState({ dataToSend: data });
+		}
+	};
 
 	// Create function to empty fields on submit
 	emptyInputValue() {
 		const allInputs = document.querySelectorAll('.post-input');
 		allInputs.forEach(input => (input.value = ''));
-		// this.setState({ postData: {} });
+		this.setState({ postData: {} });
 	}
 
 	// Since this is a Post page we can manually assign 'POST' to the request method
 	handleSubmit = async e => {
 		e.preventDefault();
 		const { postData } = this.state;
-		await this.props.handleNylasPost(postData);
+		// First wait for data to porcess and setState dataToSend using handlePostData func
+		await this.handlePostData(postData);
+		// Get dataToSend state from state, if you try to get it before this will cause issue
+		const { dataToSend } = this.state;
+		await this.props.handleNylasPost(dataToSend);
 		await this.emptyInputValue();
 		await this.props.handlePostParamsDisplay();
 		await this.props.handleRequestMethod('POST');

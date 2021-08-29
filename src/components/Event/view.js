@@ -32,11 +32,9 @@ const postPayload = {
 	events: [
 		'title',
 		'calendar_id',
-		'busy',
-		'read_only',
-		'when',
-		'participants_name',
-		'participants_email',
+		'when_unix_timestamp',
+		'participants',
+		'description',
 	],
 };
 

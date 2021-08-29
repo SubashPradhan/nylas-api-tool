@@ -18,15 +18,11 @@
   transform: translateX(0);
 }
 
-.select-params-text, .notifications-text{
+.select-params-text{
   color: whitesmoke;
   margin: 0;
   color: whitesmoke;
   text-align: center;
-}
-
-.notifications-text{
-  font-size: 0.7rem;
 }
 
 .select-params-text{
