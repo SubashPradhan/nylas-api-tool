@@ -52,10 +52,11 @@ const params = [
 	'last_message_after',
 ];
 
-const postEndpoints = ['send', 'folders'];
+const postEndpoints = ['send', 'folders', 'labels'];
 const postPayload = {
 	send: ['subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
 	folders: ['display_name'],
+	labels: ['display_name'],
 };
 
 export default function View(props) {

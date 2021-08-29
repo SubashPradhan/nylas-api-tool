@@ -34,6 +34,7 @@ const postPayload = {
 		'calendar_id',
 		'busy',
 		'read_only',
+		'when',
 		'participants_name',
 		'participants_email',
 	],
