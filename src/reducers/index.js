@@ -9,6 +9,7 @@ import { dataOnPost } from './handlePostReq';
 import { onPost } from './handleNylasPost';
 import { showDataCenterDisplay } from './handleDataCenterDisplay';
 import { currentDataCenterUrl } from './handleDataCenterUrl';
+import { requestMethod } from './handleRequestMethod';
 
 export default combineReducers({
 	showMenu,
@@ -21,4 +22,5 @@ export default combineReducers({
 	onPost,
 	showDataCenterDisplay,
 	currentDataCenterUrl,
+	requestMethod,
 });

@@ -3,6 +3,7 @@ import View from './view';
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions/handleData';
 import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
+import { handleRequestMethod } from '../../actions/handleRequestMethod';
 
 class Params extends Component {
 	constructor(props) {
@@ -54,6 +55,7 @@ class Params extends Component {
 		this.props.fetchData(`${this.props.endpoint}?${myQuery}`);
 		this.emptyInputValue();
 		this.props.handleParamsDisplay();
+		this.props.handleRequestMethod('GET');
 	};
 
 	render() {
@@ -78,6 +80,8 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchData, handleParamsDisplay })(
-	Params,
-);
+export default connect(mapStateToProps, {
+	fetchData,
+	handleParamsDisplay,
+	handleRequestMethod,
+})(Params);

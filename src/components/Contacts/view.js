@@ -1,5 +1,6 @@
 import ApiPage from '../ApiPage';
 import Params from '../Params';
+import PostParams from '../PostParams';
 
 const options = [
 	{
@@ -22,6 +23,22 @@ const params = [
 	'recurse',
 ];
 
+const postEndpoints = ['contacts'];
+const postPayload = {
+	contacts: [
+		'birthday',
+		'company_name',
+		'emails',
+		'job_title',
+		'manager_name',
+		'middle_name',
+		'nickname',
+		'office_location',
+		'surname',
+		'group',
+	],
+};
+
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
 	return (
@@ -32,6 +49,7 @@ export default function View(props) {
 				pageEndpoint={pageEndpoint}
 			/>
 			<Params params={params} />
+			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
 		</>
 	);
 }

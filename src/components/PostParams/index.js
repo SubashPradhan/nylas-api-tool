@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
 import { handleNylasPost } from '../../actions/handleNylasPost';
+import { handleRequestMethod } from '../../actions/handleRequestMethod';
 
 class PostParams extends Component {
 	constructor(props) {
@@ -39,21 +40,24 @@ class PostParams extends Component {
 				? { ...this.state.postData, [field]: value }
 				: { ...this.state.postData, [field]: [value] };
 		this.setState({ postData });
+		this.setState({ postData });
 	}
 
 	// Create function to empty fields on submit
 	emptyInputValue() {
 		const allInputs = document.querySelectorAll('.post-input');
 		allInputs.forEach(input => (input.value = ''));
-		this.setState({ postData: {} });
+		// this.setState({ postData: {} });
 	}
 
-	handleSubmit = e => {
+	// Since this is a Post page we can manually assign 'POST' to the request method
+	handleSubmit = async e => {
 		e.preventDefault();
 		const { postData } = this.state;
-		this.props.handleNylasPost(postData);
-		this.emptyInputValue();
-		this.props.handlePostParamsDisplay();
+		await this.props.handleNylasPost(postData);
+		await this.emptyInputValue();
+		await this.props.handlePostParamsDisplay();
+		await this.props.handleRequestMethod('POST');
 	};
 
 	// Create a function to create inputs
@@ -110,4 +114,5 @@ export default connect(mapStateToProps, {
 	handlePostParamsDisplay,
 	handleEndpointChange,
 	handleNylasPost,
+	handleRequestMethod,
 })(PostParams);

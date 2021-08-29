@@ -10,14 +10,20 @@ export default function View(props) {
 		handleSearchChange,
 		handleSearchSubmit,
 		handleParamsDisplay,
-		// handlePostParamsDisplay,
+		handlePostParamsDisplay,
 		options,
 		pageName,
 		id,
 		currentSelect,
 		data,
 		isLoaded,
+		onPost,
+		requestMethod,
 	} = props;
+
+	// Change the data on the Response component depending on the request Method
+	// For future reference this logic needs to be changed when there will be other methods as PUT, DELETE
+	const currentDisplayData = requestMethod === 'POST' ? onPost : data;
 
 	const API = (
 		<div className="api-page">
@@ -42,7 +48,9 @@ export default function View(props) {
 				{isLoaded ? (
 					<p>
 						Current request:{' '}
-						{data.response ? data.response.req.url : data.req.url}
+						{currentDisplayData.response
+							? currentDisplayData.response.req.url
+							: currentDisplayData.req.url}
 					</p>
 				) : (
 					<p>Loading...</p>
@@ -66,22 +74,23 @@ export default function View(props) {
 					<button className="add-params-button" onClick={handleParamsDisplay}>
 						Add extra params
 					</button>
-					{/* <button
+					<button
 						className="add-params-button"
 						onClick={handlePostParamsDisplay}
 					>
 						Post requests
-					</button> */}
+					</button>
 				</div>
 			</div>
 		</div>
 	);
+
 	return (
 		<>
 			<Navbar />
 			<Datacenter />
 			{API}
-			<Response response={data} />
+			<Response response={currentDisplayData} />
 			<Footer />
 		</>
 	);

@@ -44,7 +44,7 @@ export default function View(props) {
 				<div className="params-input-container">{showInput && postInputs}</div>
 				{showInput && (
 					<button className="submit-params" onClick={e => handleSubmit(e)}>
-						Search
+						Send
 					</button>
 				)}
 				<div className="close-params" onClick={handlePostParamsDisplay}>

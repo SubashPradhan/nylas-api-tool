@@ -38,8 +38,8 @@
 
 .navbar-links:hover {
 	color: #00E4BF;
-	transform: rotate3d(1.8, 1.5, 1.5, -10deg) scale3d(1.2, 1.2, 1.2)
-		translateZ(3rem);
+	transform: rotate3d(1.8, 1.5, 1.5, -7deg) scale3d(1.2, 1.2, 1.2)
+		translateZ(0.2rem);
 	font-weight: bold;
 }
 
