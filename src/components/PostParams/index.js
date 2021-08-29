@@ -58,7 +58,6 @@ class PostParams extends Component {
 			const { email, type } = data;
 			const dataToSend = { ...data, emails: [{ email: email, type: type }] };
 			await this.setState({ dataToSend });
-			console.log('HERER');
 		}
 
 		// Check if the data contains to field and convert into to:[{}] /send
@@ -92,7 +91,6 @@ class PostParams extends Component {
 		// If none of above then setState to the same data
 		else {
 			this.setState({ dataToSend: data });
-			console.log('LAST');
 		}
 	};
 
@@ -111,7 +109,6 @@ class PostParams extends Component {
 		await this.handlePostData(postData);
 		// Get dataToSend state from state, if you try to get it before this will cause issue
 		const { dataToSend } = this.state;
-		console.log('after function call on submit', dataToSend);
 		await this.props.handleNylasPost(dataToSend);
 		await this.emptyInputValue();
 		await this.props.handlePostParamsDisplay();
