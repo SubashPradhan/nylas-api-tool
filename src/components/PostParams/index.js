@@ -51,14 +51,14 @@ class PostParams extends Component {
 	}
 
 	// Since this is a Post page we can manually assign 'POST' to the request method
-	handleSubmit = e => {
+	handleSubmit = async e => {
 		e.preventDefault();
 		const { postData } = this.state;
 		console.log(this.state);
-		this.props.handleNylasPost(postData);
-		this.emptyInputValue();
-		this.props.handlePostParamsDisplay();
-		this.props.handleRequestMethod('POST');
+		await this.props.handleNylasPost(postData);
+		await this.emptyInputValue();
+		await this.props.handlePostParamsDisplay();
+		await this.props.handleRequestMethod('POST');
 	};
 
 	// Create a function to create inputs

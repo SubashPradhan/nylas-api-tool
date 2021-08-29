@@ -24,6 +24,7 @@ export default function View(props) {
 	// Change the data on the Response component depending on the request Method
 	// For future reference this logic needs to be changed when there will be other methods as PUT, DELETE
 	const currentDisplayData = requestMethod === 'POST' ? onPost : data;
+	console.log(currentDisplayData);
 	const API = (
 		<div className="api-page">
 			<h1 className="title">{pageName}</h1>
@@ -47,7 +48,9 @@ export default function View(props) {
 				{isLoaded ? (
 					<p>
 						Current request:{' '}
-						{data.response ? data.response.req.url : data.req.url}
+						{currentDisplayData.response
+							? currentDisplayData.response.req.url
+							: currentDisplayData.req.url}
 					</p>
 				) : (
 					<p>Loading...</p>
