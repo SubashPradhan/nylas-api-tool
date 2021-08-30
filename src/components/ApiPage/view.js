@@ -11,6 +11,7 @@ export default function View(props) {
 		handleSearchSubmit,
 		handleParamsDisplay,
 		handlePostParamsDisplay,
+		handlePutParamsDisplay,
 		options,
 		pageName,
 		id,
@@ -18,12 +19,26 @@ export default function View(props) {
 		data,
 		isLoaded,
 		onPost,
+		onPut,
 		requestMethod,
 	} = props;
 
 	// Change the data on the Response component depending on the request Method
 	// For future reference this logic needs to be changed when there will be other methods as PUT, DELETE
-	const currentDisplayData = requestMethod === 'POST' ? onPost : data;
+
+	// Create a function to handle data on given method
+	const handleDisplayData = method => {
+		if (method === 'POST') {
+			return onPost;
+		} else if (method === 'PUT') {
+			return onPut;
+		} else {
+			return data;
+		}
+	};
+
+	// Set current data using the handleDisplayData Func
+	const currentDisplayData = handleDisplayData(requestMethod);
 
 	const API = (
 		<div className="api-page">
@@ -79,6 +94,12 @@ export default function View(props) {
 						onClick={handlePostParamsDisplay}
 					>
 						Create
+					</button>
+					<button
+						className="add-params-button"
+						onClick={handlePutParamsDisplay}
+					>
+						Update
 					</button>
 				</div>
 			</div>

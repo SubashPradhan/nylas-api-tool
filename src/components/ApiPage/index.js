@@ -5,6 +5,7 @@ import { fetchData } from '../../actions/handleData';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
 import { handleParamsDisplay } from '../../actions/handleParamsDisplay';
 import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
+import { handlePutParamsDisplay } from '../../actions/handlePutParamsDisplay';
 import { handleRequestMethod } from '../../actions/handleRequestMethod';
 
 class ApiPage extends Component {
@@ -67,6 +68,7 @@ class ApiPage extends Component {
 					handleSearchSubmit={this.handleSearchSubmit}
 					handleParamsDisplay={this.props.handleParamsDisplay}
 					handlePostParamsDisplay={this.props.handlePostParamsDisplay}
+					handlePutParamsDisplay={this.props.handlePutParamsDisplay}
 					pageName={this.props.pageName}
 					options={this.props.options}
 					pageEndpoint={this.props.pageEndpoint}
@@ -75,6 +77,7 @@ class ApiPage extends Component {
 					currentSelect={this.state.currentSelect}
 					isLoaded={this.state.isLoaded}
 					onPost={this.props.onPost}
+					onPut={this.props.onPut}
 					requestMethod={this.props.requestMethod}
 				/>
 			</>
@@ -86,6 +89,7 @@ const mapStateToProps = state => {
 	return {
 		data: state.data,
 		onPost: state.onPost,
+		onPut: state.onPut,
 		endpoint: state.endpoint,
 		requestMethod: state.requestMethod,
 	};
@@ -96,5 +100,6 @@ export default connect(mapStateToProps, {
 	handleEndpointChange,
 	handleParamsDisplay,
 	handlePostParamsDisplay,
+	handlePutParamsDisplay,
 	handleRequestMethod,
 })(ApiPage);

@@ -1,6 +1,7 @@
 import ApiPage from '../ApiPage';
 import Params from '../Params';
 import PostParams from '../PostParams';
+import PutParams from '../PutParams';
 
 const options = [
 	{
@@ -16,6 +17,11 @@ const postPayload = {
 	calendars: ['name', 'description', 'location', 'timezone'],
 };
 
+const putEndpoints = ['calendars'];
+const putPayload = {
+	calendars: ['id', 'name', 'description', 'location', 'timezone'],
+};
+
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
 	return (
@@ -27,6 +33,7 @@ export default function View(props) {
 			/>
 			<Params params={params} />
 			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
+			<PutParams putEndpoints={putEndpoints} putPayload={putPayload} />
 		</>
 	);
 }
