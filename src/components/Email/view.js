@@ -52,9 +52,10 @@ const params = [
 	'last_message_after',
 ];
 
-const postEndpoints = ['send', 'folders', 'labels'];
+const postEndpoints = ['send', 'drafts', 'folders', 'labels'];
 const postPayload = {
 	send: ['subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
+	drafts: ['subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
 	folders: ['display_name'],
 	labels: ['display_name'],
 };

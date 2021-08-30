@@ -72,13 +72,13 @@ export default function View(props) {
 				</div>
 				<div className="add-params-button-container">
 					<button className="add-params-button" onClick={handleParamsDisplay}>
-						Add extra params
+						Add params
 					</button>
 					<button
 						className="add-params-button"
 						onClick={handlePostParamsDisplay}
 					>
-						Post requests
+						Create
 					</button>
 				</div>
 			</div>
