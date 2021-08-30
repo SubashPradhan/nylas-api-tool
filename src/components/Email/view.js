@@ -2,6 +2,7 @@ import '../../styles/api.css';
 import ApiPage from '../ApiPage';
 import Params from '../Params';
 import PostParams from '../PostParams';
+import PutParams from '../PutParams';
 
 const options = [
 	{
@@ -60,6 +61,15 @@ const postPayload = {
 	labels: ['display_name'],
 };
 
+// Create putPayload as this will have additional id on it.
+
+const putPayload = {
+	send: ['id', 'subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
+	drafts: ['id', 'subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
+	folders: ['id', 'display_name'],
+	labels: ['id', 'display_name'],
+};
+
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
 
@@ -72,6 +82,8 @@ export default function View(props) {
 			/>
 			<Params params={params} />
 			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
+			{/* use postEndpoints for putEndpoints as they are same only change payload */}
+			<PutParams postEndpoints={postEndpoints} putPayload={putPayload} />
 		</>
 	);
 }

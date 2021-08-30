@@ -1,19 +1,19 @@
 import { Component } from 'react';
 import View from './view';
 import { connect } from 'react-redux';
-import { handlePostParamsDisplay } from '../../actions/handlePostParamsDisplay';
+import { handlePutParamsDisplay } from '../../actions/handlePutParamsDisplay';
 import { handleEndpointChange } from '../../actions/handleEndpointChange';
-import { handleNylasPost } from '../../actions/handleNylasPost';
+import { handleNylasPut } from '../../actions/handleNylasPut';
 import { handleRequestMethod } from '../../actions/handleRequestMethod';
 
-class PostParams extends Component {
+class PutParams extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			postData: null,
+			putData: null,
 			showInput: false,
-			postInputs: null,
+			putInputs: null,
 			dataToSend: null,
 		};
 
@@ -28,7 +28,7 @@ class PostParams extends Component {
 		this.props.handleEndpointChange(name);
 
 		this.setState({
-			postInputs: this.handleInputCreation(payload),
+			putInputs: this.handleInputCreation(payload),
 			showInput: true,
 		});
 	}
@@ -36,8 +36,8 @@ class PostParams extends Component {
 	handleInputChange(e, field) {
 		const { value } = e.target;
 		// Check if not email as email needs to be send as an array
-		const postData = { ...this.state.postData, [field]: value };
-		this.setState({ postData });
+		const putData = { ...this.state.putData, [field]: value };
+		this.setState({ putData });
 	}
 
 	// Function to handle data type while sending
@@ -47,8 +47,10 @@ class PostParams extends Component {
 		// Check if some value exists in the given post data and handle their data type to send
 		// >> setState: dataToSend
 
+		// Check if the endpoint is contacts and has emails field
+		// This needs to be done on the top as free-busy also has emails field
 		if (data !== null) {
-			// Convert give data into an array
+			// Convert given data into an array
 			const arrayOfDatas = await Object.keys(data);
 			// Check if the endpoint is contacts and has emails field
 			// This needs to be done on the top as free-busy also has emails field
@@ -87,12 +89,12 @@ class PostParams extends Component {
 					participants: [{ email: participants }],
 					when: { time: when_unix_timestamp },
 				};
-				this.setState({ dataToSend });
+				await this.setState({ dataToSend });
 			}
 		}
 		// If none of above then setState to the same data
 		else {
-			this.setState({ dataToSend: data });
+			await this.setState({ dataToSend: data });
 		}
 	};
 
@@ -100,21 +102,23 @@ class PostParams extends Component {
 	emptyInputValue() {
 		const allInputs = document.querySelectorAll('.post-input');
 		allInputs.forEach(input => (input.value = ''));
-		this.setState({ postData: {} });
+		this.setState({ putData: {} });
 	}
 
 	// Since this is a Post page we can manually assign 'POST' to the request method
 	handleSubmit = async e => {
 		e.preventDefault();
-		const { postData } = this.state;
+		const { putData } = this.state;
 		// First wait for data to porcess and setState dataToSend using handlePostData func
-		await this.handlePostData(postData);
+		await this.handlePostData(putData);
 		// Get dataToSend state from state, if you try to get it before this will cause issue
+		// Get Id to send it on the request
 		const { dataToSend } = this.state;
-		await this.props.handleNylasPost(dataToSend);
+		const { id } = dataToSend;
+		await this.props.handleNylasPut(id, dataToSend);
 		await this.emptyInputValue();
-		await this.props.handlePostParamsDisplay();
-		await this.props.handleRequestMethod('POST');
+		await this.props.handlePutParamsDisplay();
+		await this.props.handleRequestMethod('PUT');
 	};
 
 	// Create a function to create inputs
@@ -150,11 +154,11 @@ class PostParams extends Component {
 				handleSubmit={this.handleSubmit}
 				changeToCamelCase={this.changeToCamelCase}
 				showInput={this.state.showInput}
-				showPostParams={this.props.showPostParams}
-				handlePostParamsDisplay={this.props.handlePostParamsDisplay}
+				showPutParams={this.props.showPutParams}
+				handlePutParamsDisplay={this.props.handlePutParamsDisplay}
 				postEndpoints={this.props.postEndpoints}
-				postInputs={this.state.postInputs}
-				postPayload={this.props.postPayload}
+				putInputs={this.state.putInputs}
+				putPayload={this.props.putPayload}
 			/>
 		);
 	}
@@ -163,13 +167,13 @@ class PostParams extends Component {
 const mapStateToProps = state => {
 	return {
 		endpoint: state.endpoint,
-		showPostParams: state.showPostParams,
+		showPutParams: state.showPutParams,
 	};
 };
 
 export default connect(mapStateToProps, {
-	handlePostParamsDisplay,
+	handlePutParamsDisplay,
 	handleEndpointChange,
-	handleNylasPost,
+	handleNylasPut,
 	handleRequestMethod,
-})(PostParams);
+})(PutParams);
