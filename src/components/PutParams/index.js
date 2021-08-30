@@ -38,6 +38,7 @@ class PutParams extends Component {
 		// Check if not email as email needs to be send as an array
 		const putData = { ...this.state.putData, [field]: value };
 		this.setState({ putData });
+		console.log(putData);
 	}
 
 	// Function to handle data type while sending
@@ -54,6 +55,7 @@ class PutParams extends Component {
 			const arrayOfDatas = await Object.keys(data);
 			// Check if the endpoint is contacts and has emails field
 			// This needs to be done on the top as free-busy also has emails field
+
 			if (
 				(this.props.endpoint === 'contacts' &&
 					arrayOfDatas.includes('email')) ||
@@ -90,6 +92,8 @@ class PutParams extends Component {
 					when: { time: when_unix_timestamp },
 				};
 				await this.setState({ dataToSend });
+			} else {
+				await this.setState({ dataToSend: data });
 			}
 		}
 		// If none of above then setState to the same data
@@ -115,6 +119,7 @@ class PutParams extends Component {
 		// Get Id to send it on the request
 		const { dataToSend } = this.state;
 		const { id } = dataToSend;
+		console.log(dataToSend);
 		await this.props.handleNylasPut(id, dataToSend);
 		await this.emptyInputValue();
 		await this.props.handlePutParamsDisplay();
@@ -156,7 +161,7 @@ class PutParams extends Component {
 				showInput={this.state.showInput}
 				showPutParams={this.props.showPutParams}
 				handlePutParamsDisplay={this.props.handlePutParamsDisplay}
-				postEndpoints={this.props.postEndpoints}
+				putEndpoints={this.props.putEndpoints}
 				putInputs={this.state.putInputs}
 				putPayload={this.props.putPayload}
 			/>

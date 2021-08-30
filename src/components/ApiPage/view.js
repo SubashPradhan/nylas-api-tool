@@ -41,8 +41,6 @@ export default function View(props) {
 	// Set current data using the handleDisplayData Func
 	const currentDisplayData = handleDisplayData(requestMethod);
 
-	console.log('LOG', currentDisplayData);
-
 	const API = (
 		<div className="api-page">
 			<h1 className="title">{pageName}</h1>

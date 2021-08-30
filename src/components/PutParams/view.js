@@ -8,12 +8,12 @@ export default function View(props) {
 		changeToCamelCase,
 		showInput,
 		showPutParams,
-		postEndpoints,
+		putEndpoints,
 		putInputs,
 		putPayload,
 	} = props;
 
-	const paramsButton = postEndpoints.map((param, i) => {
+	const paramsButton = putEndpoints.map((param, i) => {
 		// Change current name to camelCase to pass in the putPayload object
 		const currentParam = changeToCamelCase(param);
 		const currentPostPayload = putPayload[`${currentParam}`];

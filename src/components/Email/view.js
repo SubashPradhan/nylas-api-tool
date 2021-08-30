@@ -62,9 +62,9 @@ const postPayload = {
 };
 
 // Create putPayload as this will have additional id on it.
-
+const putEndpoints = ['messages', 'drafts', 'folders', 'labels'];
 const putPayload = {
-	send: ['id', 'subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
+	messages: ['id', 'subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
 	drafts: ['id', 'subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
 	folders: ['id', 'display_name'],
 	labels: ['id', 'display_name'],
@@ -82,8 +82,7 @@ export default function View(props) {
 			/>
 			<Params params={params} />
 			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
-			{/* use postEndpoints for putEndpoints as they are same only change payload */}
-			<PutParams postEndpoints={postEndpoints} putPayload={putPayload} />
+			<PutParams putEndpoints={putEndpoints} putPayload={putPayload} />
 		</>
 	);
 }

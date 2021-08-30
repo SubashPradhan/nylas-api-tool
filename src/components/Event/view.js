@@ -1,6 +1,7 @@
 import ApiPage from '../ApiPage';
 import Params from '../Params';
 import PostParams from '../PostParams';
+import PutParams from '../PutParams';
 
 const options = [
 	{
@@ -37,6 +38,17 @@ const postPayload = {
 		'description',
 	],
 };
+const putEndpoints = ['events'];
+const putPayload = {
+	events: [
+		'id',
+		'title',
+		'calendar_id',
+		'when_unix_timestamp',
+		'participants',
+		'description',
+	],
+};
 
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
@@ -49,6 +61,7 @@ export default function View(props) {
 			/>
 			<Params params={params} />
 			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
+			<PutParams putEndpoints={putEndpoints} putPayload={putPayload} />
 		</>
 	);
 }

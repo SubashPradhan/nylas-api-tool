@@ -1,6 +1,7 @@
 import ApiPage from '../ApiPage';
 import Params from '../Params';
 import PostParams from '../PostParams';
+import PutParams from '../PutParams';
 
 const options = [
 	{
@@ -40,6 +41,24 @@ const postPayload = {
 		'manager_name',
 	],
 };
+const putEndpoints = ['contacts'];
+const putPayload = {
+	contacts: [
+		'id',
+		'email',
+		'type',
+		'given_name',
+		'middle_name',
+		'surname',
+		'nickname',
+		'company_name',
+		'office_location',
+		'group',
+		'birthday',
+		'job_title',
+		'manager_name',
+	],
+};
 
 export default function View(props) {
 	const { pageEndpoint, pageName } = props;
@@ -52,6 +71,7 @@ export default function View(props) {
 			/>
 			<Params params={params} />
 			<PostParams postEndpoints={postEndpoints} postPayload={postPayload} />
+			<PutParams putEndpoints={putEndpoints} putPayload={putPayload} />
 		</>
 	);
 }
