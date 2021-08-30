@@ -3,7 +3,6 @@ import Navbar from '../Navbar';
 import Footer from '../Footer';
 import Datacenter from '../Datacenter';
 import '../../styles/api.css';
-import { onPut } from '../../reducers/handleNylasPut';
 
 export default function View(props) {
 	const {
