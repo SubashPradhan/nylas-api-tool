@@ -38,7 +38,6 @@ class PutParams extends Component {
 		// Check if not email as email needs to be send as an array
 		const putData = { ...this.state.putData, [field]: value };
 		this.setState({ putData });
-		console.log(putData);
 	}
 
 	// Function to handle data type while sending
@@ -119,7 +118,6 @@ class PutParams extends Component {
 		// Get Id to send it on the request
 		const { dataToSend } = this.state;
 		const { id } = dataToSend;
-		console.log(dataToSend);
 		await this.props.handleNylasPut(id, dataToSend);
 		await this.emptyInputValue();
 		await this.props.handlePutParamsDisplay();
