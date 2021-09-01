@@ -65,7 +65,15 @@ const postPayload = {
 const putEndpoints = ['messages', 'drafts', 'folders', 'labels'];
 const putPayload = {
 	messages: ['id', 'subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
-	drafts: ['id', 'subject', 'to', 'reply_to_messge_id', 'body', 'file_ids'],
+	drafts: [
+		'id',
+		'subject',
+		'to',
+		'version',
+		'reply_to_messge_id',
+		'body',
+		'file_ids',
+	],
 	folders: ['id', 'display_name'],
 	labels: ['id', 'display_name'],
 };

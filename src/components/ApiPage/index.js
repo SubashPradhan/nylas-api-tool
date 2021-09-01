@@ -35,11 +35,18 @@ class ApiPage extends Component {
 		});
 	};
 
-	handleSearchSubmit = e => {
+	handleSearchSubmit = async e => {
 		e.preventDefault();
-		const { endpoint } = this.props;
+		const { endpoint, pageEndpoint } = this.props;
+		// Catch send endpoint as this is a special condition, which will cause CORS issue
+		// If clicked from create /send >> message search this will end calling /send/{search-ID}
+		// If endpoint is send while searching with ID set it back to messages as pageEndpoint is messages
+		if (endpoint === 'send') {
+			await this.props.handleEndpointChange(pageEndpoint);
+		}
 		const { id } = this.state;
-		const searchEndpoint = !endpoint ? this.props.endpoint : endpoint;
+		// Use this.props.endpoint as this will be changed above with if condition
+		const searchEndpoint = this.props.endpoint;
 		const searchId = !id ? '' : id;
 		this.props.fetchData(`${searchEndpoint}/${searchId}`);
 		this.setState({ id: '' });

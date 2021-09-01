@@ -11,12 +11,13 @@ const options = [
 ];
 
 const params = [
-	'show_cancelled',
 	'limit',
 	'offset',
 	'calendar_id',
+	'event_id',
 	'title',
 	'description',
+	'show_cancelled',
 	'location',
 	'starts_before',
 	'starts_after',
