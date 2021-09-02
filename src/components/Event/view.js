@@ -15,6 +15,7 @@ const params = [
 	'offset',
 	'calendar_id',
 	'event_id',
+	'view',
 	'title',
 	'description',
 	'show_cancelled',
